@@ -53,8 +53,6 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.06);
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -62,59 +60,10 @@
         .entry-card:active { transform: scale(0.98); }
         .entry-info h2 { margin: 0 0 8px 0; font-size: 20px; }
         .entry-info p { margin: 0; font-size: 13px; color: var(--text-sub); }
+        .entry-icon { font-size: 42px; }
         
-        /* 火柴人图标容器 */
-        .stick-icon {
-            width: 70px;
-            height: 70px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 1;
-        }
-        .stick-icon svg {
-            width: 60px;
-            height: 60px;
-            stroke-width: 2.5;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            fill: none;
-            overflow: visible;
-        }
-
-        /* ========= 主页火柴人动画 ========= */
-        /* BINBIN: 深蹲动画 */
         .card-binbin { border-left: 6px solid #007AFF; }
-        .card-binbin .stick-icon svg { stroke: #007AFF; }
-        
-        .anim-bb-upper { animation: bbSquatUpper 1.5s infinite ease-in-out; }
-        .anim-bb-legs { animation: bbSquatLegs 1.5s infinite ease-in-out; transform-origin: 50% 100%; }
-
-        @keyframes bbSquatUpper {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
-        }
-        @keyframes bbSquatLegs {
-            0%, 100% { d: path('M15 45 L25 38 L35 45'); }
-            50% { d: path('M15 45 L25 42 L35 45'); } /* 压低 */
-        }
-
-        /* CHAICHAI: 悬浮动画 */
         .card-chaichai { border-left: 6px solid #FF2D55; }
-        .card-chaichai .stick-icon svg { stroke: #FF2D55; }
-
-        .anim-cc-body { animation: ccFloat 3s infinite ease-in-out; }
-        .anim-cc-magic { animation: ccPulse 3s infinite ease-in-out; transform-origin: center; }
-
-        @keyframes ccFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-        @keyframes ccPulse {
-            0%, 100% { transform: scaleX(1); opacity: 0.5; }
-            50% { transform: scaleX(0.7); opacity: 0.2; }
-        }
-        /* ================================== */
 
         /* --- 通用组件样式 --- */
         .header {
@@ -132,13 +81,13 @@
         }
         .nav-back { font-size: 16px; color: var(--primary); cursor: pointer; display: flex; align-items: center; }
         .header h1 { margin: 0; font-size: 18px; font-weight: 700; position: absolute; left: 50%; transform: translateX(-50%); }
-        .badge { background: #000; color: #fff; font-size: 10px; padding: 4px 8px; border-radius: 12px; font-weight: 600; }
+        .badge { background: #000; color: #fff; font-size: 11px; padding: 5px 10px; border-radius: 12px; font-weight: 600; }
 
         .dashboard {
             margin: 16px; padding: 20px; background: var(--card-bg); border-radius: 18px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.04); display: flex; justify-content: space-between; text-align: center;
         }
-        .stat-val { font-size: 24px; font-weight: 800; display: block; margin-bottom: 4px; }
+        .stat-val { font-size: 22px; font-weight: 800; display: block; margin-bottom: 4px; }
         .stat-lbl { font-size: 11px; color: var(--text-sub); letter-spacing: 0.5px; }
 
         .tabs { margin: 16px; background: #E5E5EA; padding: 4px; border-radius: 12px; display: flex; }
@@ -176,10 +125,10 @@
         .ex-name { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
         .ex-detail { font-size: 12px; color: var(--text-sub); }
 
-        /* SVG 动画容器 (子页面) */
+        /* SVG 动画容器 (仅保留内部小图标动画) */
         .anim-icon { width: 44px; height: 44px; background: #F2F2F7; border-radius: 10px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
         .anim-icon svg { width: 30px; height: 30px; }
-        /* 子页面动画定义 */
+        /* 内部小图标动画定义 */
         .anim-push-bar { animation: barMove 1.5s infinite ease-in-out; }
         @keyframes barMove { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
         .anim-pull-arm { animation: pullMove 1.5s infinite ease-in-out; transform-origin: top center; }
@@ -229,23 +178,10 @@
                 <h2>BINBIN 减肥计划</h2>
                 <p>1月极限冲刺 · 15斤目标</p>
                 <div style="margin-top:10px;">
-                    <span class="badge">Day 3</span>
                     <span class="badge" style="background:#007AFF">156斤 ↘</span>
                 </div>
             </div>
-            <div class="stick-icon">
-                <svg viewBox="0 0 50 50">
-                     <g class="anim-bb-upper">
-                         <line x1="5" y1="15" x2="45" y2="15" stroke-width="4" stroke="#007AFF" />
-                         <line x1="8" y1="10" x2="8" y2="20" stroke-width="4" stroke="#007AFF" /> 
-                         <line x1="42" y1="10" x2="42" y2="20" stroke-width="4" stroke="#007AFF" />
-                         <circle cx="25" cy="18" r="4" stroke="#007AFF" /> 
-                         <path d="M10 15 L25 24 L40 15" stroke="#007AFF" /> 
-                         <line x1="25" y1="22" x2="25" y2="38" stroke="#007AFF" /> 
-                     </g>
-                     <path class="anim-bb-legs" d="M15 45 L25 38 L35 45" stroke="#007AFF" />
-                </svg>
-            </div>
+            <div class="entry-icon">🏋️‍♂️</div>
         </div>
 
         <div class="entry-card card-chaichai" onclick="switchView('view-chaichai')">
@@ -253,23 +189,10 @@
                 <h2>CHAICHAI 塑形计划</h2>
                 <p>开年塑形 · 108斤目标</p>
                 <div style="margin-top:10px;">
-                    <span class="badge">Day 3</span>
-                    <span class="badge" style="background:#FF2D55">115斤(水肿)</span>
+                    <span class="badge" style="background:#FF2D55">115斤 (水肿)</span>
                 </div>
             </div>
-            <div class="stick-icon">
-                <svg viewBox="0 0 50 50">
-                    <g class="anim-cc-body">
-                        <circle cx="25" cy="15" r="4" stroke="#FF2D55" />
-                        <line x1="25" y1="19" x2="25" y2="35" stroke="#FF2D55" /> 
-                        <path d="M12 40 L25 35 L38 40" stroke="#FF2D55" />
-                        <path d="M15 28 L25 22 L35 28" stroke="#FF2D55" /> 
-                    </g>
-                    <g class="anim-cc-magic">
-                        <path d="M10 45 Q25 50 40 45" stroke="#FF2D55" stroke-width="1.5" stroke-dasharray="2,2" />
-                    </g>
-                </svg>
-            </div>
+            <div class="entry-icon">🧘‍♀️</div>
         </div>
         
         <div style="text-align:center; color:#ccc; font-size:12px; margin-top:40px;">Updated: 1月6日</div>
@@ -279,13 +202,13 @@
         <div class="header">
             <div class="nav-back" onclick="switchView('home-view')">❮ 返回</div>
             <h1>极限冲刺 Pro</h1>
-            <span class="badge">156斤</span>
+            <span class="badge">Day 3 · 1月6日</span>
         </div>
 
         <div class="dashboard">
-            <div class="stat-item"><span class="stat-val" style="color:var(--text-main)">156</span><span class="stat-lbl">当前 (斤)</span></div>
-            <div class="stat-item"><span class="stat-val" style="color:var(--danger)">-11</span><span class="stat-lbl">剩余目标</span></div>
-            <div class="stat-item"><span class="stat-val" style="color:var(--primary)">3</span><span class="stat-lbl">Day</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:var(--text-sub)">160</span><span class="stat-lbl">初始</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:var(--danger)">11</span><span class="stat-lbl">剩余目标</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:var(--primary)">156<span style="font-size:14px">↘</span></span><span class="stat-lbl">当前</span></div>
         </div>
 
         <div class="tabs">
@@ -352,13 +275,13 @@
         <div class="header">
             <div class="nav-back" onclick="switchView('home-view')">❮ 返回</div>
             <h1>2026 塑形计划</h1>
-            <span class="badge">115斤 (水肿)</span>
+             <span class="badge">Day 3 · 1月6日</span>
         </div>
 
         <div class="dashboard">
-            <div class="stat-item"><span class="stat-val" style="color:var(--text-main)">113</span><span class="stat-lbl">初始</span></div>
-            <div class="stat-item"><span class="stat-val" style="color:#AF52DE">115</span><span class="stat-lbl">当前(水肿)</span></div>
-            <div class="stat-item"><span class="stat-val" style="color:var(--primary)">3</span><span class="stat-lbl">Day</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:var(--text-sub)">113</span><span class="stat-lbl">初始</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:var(--danger)">7</span><span class="stat-lbl">剩余目标</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:#AF52DE">115<span style="font-size:12px"> (水肿)</span></span><span class="stat-lbl">当前</span></div>
         </div>
 
         <div class="tabs">
@@ -394,7 +317,7 @@
             <div class="card" onclick="toggleCard(this)"><div class="workout-header"><div><strong>周一 Mon (Plan A)</strong><div class="ex-detail">下肢塑形</div></div><div>▼</div></div><div class="workout-body"><div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary); stroke-width:2.5; fill:none;"><g class="anim-squat-body"><circle cx="25" cy="10" r="4" stroke="#333"/><line x1="25" y1="14" x2="25" y2="30" stroke="#333"/><path d="M25 30 L15 45 M25 30 L35 45" stroke="#333"/></g></svg></div><div class="ex-info"><div class="ex-name">1. 高脚杯深蹲</div><div class="ex-detail">4组 x 15次</div></div></div><div class="ex-item"><div class="ex-info"><div class="ex-name">2. 哑铃罗马尼亚硬拉</div><div class="ex-detail">4组 x 12次</div></div></div></div></div>
             <div class="card" onclick="toggleCard(this)"><div class="workout-header"><div><strong>周二 Tue (Plan B)</strong><div class="ex-detail">上肢美背</div></div><div>▼</div></div><div class="workout-body"><div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--purple); stroke-width:2.5; fill:none;"><g class="anim-pull-arm"><path d="M25 20 L10 10 M25 20 L40 10" stroke="#333"/></g></svg></div><div class="ex-info"><div class="ex-name">1. 高位下拉</div><div class="ex-detail">4组 x 12次</div></div></div><div class="ex-item"><div class="ex-info"><div class="ex-name">2. 坐姿划船</div><div class="ex-detail">3组 x 15次</div></div></div></div></div>
             <div class="card" onclick="toggleCard(this)"><div class="workout-header"><div><strong>周六 Sat (Cardio)</strong></div><div>▼</div></div><div class="workout-body"><div class="ex-item"><div class="ex-info"><div class="ex-name">有氧运动 45-60分钟</div><div class="ex-detail">户外跑 / 爬山 / 单车</div></div></div></div></div>
-            <div class="card" onclick="toggleCard(this)">
+             <div class="card" onclick="toggleCard(this)">
                 <div class="workout-header"><div><strong>周日 Sun (Rest)</strong><div class="ex-detail">彻底休息</div></div><div>▼</div></div>
                 <div class="workout-body"><div class="ex-item"><div class="ex-info"><div class="ex-name">不进健身房</div><div class="ex-detail">恢复日，泡脚</div></div></div></div>
             </div>
