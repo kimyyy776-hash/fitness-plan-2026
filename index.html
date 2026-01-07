@@ -63,31 +63,60 @@
         .entry-info h2 { margin: 0 0 8px 0; font-size: 20px; }
         .entry-info p { margin: 0; font-size: 13px; color: var(--text-sub); }
         
-        /* 火柴人图标样式 */
+        /* 火柴人图标容器 */
         .stick-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             display: flex;
             justify-content: center;
             align-items: center;
-            opacity: 0.9;
+            opacity: 1;
         }
         .stick-icon svg {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             stroke-width: 2.5;
             stroke-linecap: round;
             stroke-linejoin: round;
             fill: none;
+            overflow: visible;
         }
-        
+
+        /* ========= 主页火柴人动画 ========= */
+        /* BINBIN: 深蹲动画 */
         .card-binbin { border-left: 6px solid #007AFF; }
         .card-binbin .stick-icon svg { stroke: #007AFF; }
         
+        .anim-bb-upper { animation: bbSquatUpper 1.5s infinite ease-in-out; }
+        .anim-bb-legs { animation: bbSquatLegs 1.5s infinite ease-in-out; transform-origin: 50% 100%; }
+
+        @keyframes bbSquatUpper {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+        @keyframes bbSquatLegs {
+            0%, 100% { d: path('M15 45 L25 38 L35 45'); }
+            50% { d: path('M15 45 L25 42 L35 45'); } /* 压低 */
+        }
+
+        /* CHAICHAI: 悬浮动画 */
         .card-chaichai { border-left: 6px solid #FF2D55; }
         .card-chaichai .stick-icon svg { stroke: #FF2D55; }
 
-        /* --- 通用组件样式 (两个计划共用) --- */
+        .anim-cc-body { animation: ccFloat 3s infinite ease-in-out; }
+        .anim-cc-magic { animation: ccPulse 3s infinite ease-in-out; transform-origin: center; }
+
+        @keyframes ccFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes ccPulse {
+            0%, 100% { transform: scaleX(1); opacity: 0.5; }
+            50% { transform: scaleX(0.7); opacity: 0.2; }
+        }
+        /* ================================== */
+
+        /* --- 通用组件样式 --- */
         .header {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(20px);
@@ -147,10 +176,10 @@
         .ex-name { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
         .ex-detail { font-size: 12px; color: var(--text-sub); }
 
-        /* SVG 动画容器 */
+        /* SVG 动画容器 (子页面) */
         .anim-icon { width: 44px; height: 44px; background: #F2F2F7; border-radius: 10px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
         .anim-icon svg { width: 30px; height: 30px; }
-        /* 动画定义 */
+        /* 子页面动画定义 */
         .anim-push-bar { animation: barMove 1.5s infinite ease-in-out; }
         @keyframes barMove { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
         .anim-pull-arm { animation: pullMove 1.5s infinite ease-in-out; transform-origin: top center; }
@@ -173,30 +202,17 @@
         .fb-status { font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-main); }
         .fb-content { font-size: 13px; color: #444; line-height: 1.5; background: #F9F9F9; padding: 10px; border-radius: 8px;}
 
-        /* --- ⚠️ 变量隔离区 (Scoped CSS) --- */
-        #view-binbin {
-            --primary: #007AFF;
-            --danger: #FF3B30;
-            --success: #34C759;
-            --warning: #FF9500;
-            --purple: #AF52DE;
-        }
-        #view-chaichai {
-            --primary: #FF2D55;
-            --danger: #FF3B30;
-            --success: #34C759;
-            --warning: #FF9500;
-            --purple: #AF52DE;
-        }
+        /* --- 变量隔离区 --- */
+        #view-binbin { --primary: #007AFF; --danger: #FF3B30; --success: #34C759; --warning: #FF9500; --purple: #AF52DE; }
+        #view-chaichai { --primary: #FF2D55; --danger: #FF3B30; --success: #34C759; --warning: #FF9500; --purple: #AF52DE; }
 
         /* 辅助类 */
         .tag-lunch { background: rgba(52, 199, 89, 0.1); color: var(--success); }
         .tag-snack { background: rgba(255, 149, 0, 0.1); color: var(--warning); }
         .tag-dinner { background: rgba(255, 59, 48, 0.1); color: var(--danger); }
-        .routine-row { background: #F2F8FF; } /* Binbin 默认 */
-        #view-chaichai .routine-row { background: #FFF0F5; } /* Chaichai 覆写 */
+        .routine-row { background: #F2F8FF; } 
+        #view-chaichai .routine-row { background: #FFF0F5; } 
         
-        /* 复制框样式 */
         .copy-box { background: #F8F8F8; border: 1px dashed #C7C7CC; border-radius: 8px; padding: 14px; font-family: monospace; font-size: 12px; color: #333; line-height: 1.6; white-space: pre-wrap; position: relative; margin-bottom: 20px;}
         .alert-banner { margin: 0 16px 16px; padding: 12px; background: #FFF8E1; border: 1px solid #FFECB3; border-radius: 12px; font-size: 13px; color: #856404; display: flex; align-items: center; }
 
@@ -219,10 +235,16 @@
             </div>
             <div class="stick-icon">
                 <svg viewBox="0 0 50 50">
-                     <line x1="5" y1="15" x2="45" y2="15" stroke-width="4" stroke="#007AFF" />
-                     <line x1="8" y1="10" x2="8" y2="20" stroke-width="4" stroke="#007AFF" /> 
-                     <line x1="42" y1="10" x2="42" y2="20" stroke-width="4" stroke="#007AFF" />
-                     <circle cx="25" cy="18" r="4" stroke="#007AFF" /> <path d="M10 15 L25 24 L40 15" stroke="#007AFF" /> <line x1="25" y1="22" x2="25" y2="38" stroke="#007AFF" /> <path d="M15 45 L25 38 L35 45" stroke="#007AFF" /> </svg>
+                     <g class="anim-bb-upper">
+                         <line x1="5" y1="15" x2="45" y2="15" stroke-width="4" stroke="#007AFF" />
+                         <line x1="8" y1="10" x2="8" y2="20" stroke-width="4" stroke="#007AFF" /> 
+                         <line x1="42" y1="10" x2="42" y2="20" stroke-width="4" stroke="#007AFF" />
+                         <circle cx="25" cy="18" r="4" stroke="#007AFF" /> 
+                         <path d="M10 15 L25 24 L40 15" stroke="#007AFF" /> 
+                         <line x1="25" y1="22" x2="25" y2="38" stroke="#007AFF" /> 
+                     </g>
+                     <path class="anim-bb-legs" d="M15 45 L25 38 L35 45" stroke="#007AFF" />
+                </svg>
             </div>
         </div>
 
@@ -237,14 +259,20 @@
             </div>
             <div class="stick-icon">
                 <svg viewBox="0 0 50 50">
-                    <circle cx="25" cy="15" r="4" stroke="#FF2D55" /> <line x1="25" y1="19" x2="25" y2="35" stroke="#FF2D55" /> <path d="M12 40 L25 35 L38 40" stroke="#FF2D55" /> <path d="M15 28 L25 22 L35 28" stroke="#FF2D55" /> <path d="M10 45 Q25 50 40 45" stroke="#FF2D55" stroke-width="1.5" stroke-dasharray="2,2" />
+                    <g class="anim-cc-body">
+                        <circle cx="25" cy="15" r="4" stroke="#FF2D55" />
+                        <line x1="25" y1="19" x2="25" y2="35" stroke="#FF2D55" /> 
+                        <path d="M12 40 L25 35 L38 40" stroke="#FF2D55" />
+                        <path d="M15 28 L25 22 L35 28" stroke="#FF2D55" /> 
+                    </g>
+                    <g class="anim-cc-magic">
+                        <path d="M10 45 Q25 50 40 45" stroke="#FF2D55" stroke-width="1.5" stroke-dasharray="2,2" />
+                    </g>
                 </svg>
             </div>
         </div>
         
-        <div style="text-align:center; color:#ccc; font-size:12px; margin-top:40px;">
-            Updated: 1月6日
-        </div>
+        <div style="text-align:center; color:#ccc; font-size:12px; margin-top:40px;">Updated: 1月6日</div>
     </div>
 
     <div id="view-binbin" class="view-container">
@@ -255,18 +283,9 @@
         </div>
 
         <div class="dashboard">
-            <div class="stat-item">
-                <span class="stat-val" style="color:var(--text-main)">156</span>
-                <span class="stat-lbl">当前 (斤)</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-val" style="color:var(--danger)">-11</span>
-                <span class="stat-lbl">剩余目标</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-val" style="color:var(--primary)">3</span>
-                <span class="stat-lbl">Day</span>
-            </div>
+            <div class="stat-item"><span class="stat-val" style="color:var(--text-main)">156</span><span class="stat-lbl">当前 (斤)</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:var(--danger)">-11</span><span class="stat-lbl">剩余目标</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:var(--primary)">3</span><span class="stat-lbl">Day</span></div>
         </div>
 
         <div class="tabs">
@@ -277,136 +296,28 @@
 
         <div id="b-diet" class="section active">
             <div class="card" style="border:1px solid #E3F2FD;">
-                <div class="list-header" style="background: #E3F2FD; color:#0055ff;">
-                    <span>黄金作息</span> <span>Routine</span>
-                </div>
-                <div class="list-row routine-row">
-                    <div class="time-col">07:30</div>
-                    <div class="content-col"><strong>🌽 1根玉米 + 2个水煮蛋 + 黑咖</strong></div>
-                </div>
-                <div class="list-row routine-row">
-                    <div class="time-col">23:00</div>
-                    <div class="content-col"><strong>🌙 强制关机睡眠</strong></div>
-                </div>
+                <div class="list-header" style="background: #E3F2FD; color:#0055ff;"><span>黄金作息</span> <span>Routine</span></div>
+                <div class="list-row routine-row"><div class="time-col">07:30</div><div class="content-col"><strong>🌽 1根玉米 + 2个水煮蛋 + 黑咖</strong></div></div>
+                <div class="list-row routine-row"><div class="time-col">23:00</div><div class="content-col"><strong>🌙 强制关机睡眠</strong></div></div>
             </div>
             
-            <div class="card">
-                <div class="list-header"><span>周一 Mon (清淡)</span></div>
-                <div class="list-row">
-                    <div class="time-col">12:00</div>
-                    <div class="content-col"><span class="tag tag-lunch">沙野轻食</span><br><strong>黑椒牛排意面</strong> (意面吃一半)</div>
-                </div>
-                <div class="list-row">
-                    <div class="time-col">16:30</div>
-                    <div class="content-col"><span class="tag tag-snack">练前</span><br><strong>一根香蕉</strong> (快碳)</div>
-                </div>
-                <div class="list-row">
-                    <div class="time-col">21:00</div>
-                    <div class="content-col"><span class="tag tag-dinner">练后</span><br><strong>2个水煮蛋 + 黄瓜</strong> (0碳水)</div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="list-header"><span>周二 Tue (中餐改造)</span></div>
-                <div class="list-row"><div class="time-col">12:00</div><div class="content-col"><span class="tag tag-lunch">老娘舅</span><br><strong>梅菜扣肉(去肥) + 水炖蛋 + 半碗饭</strong></div></div>
-                <div class="list-row"><div class="time-col">16:30</div><div class="content-col"><span class="tag tag-snack">罗森</span><br><strong>1片全麦面包</strong></div></div>
-                <div class="list-row"><div class="time-col">21:00</div><div class="content-col"><span class="tag tag-dinner">轻食</span><br><strong>凯撒沙拉</strong> (只要鸡肉和菜)</div></div>
-            </div>
-             <div class="card">
-                <div class="list-header"><span>周三 Wed (低脂)</span></div>
-                <div class="list-row"><div class="time-col">12:00</div><div class="content-col"><span class="tag tag-lunch">赛百味</span><br><strong>香烤牛肉</strong> (挖空面包芯，不加酱)</div></div>
-                <div class="list-row"><div class="time-col">16:30</div><div class="content-col"><span class="tag tag-snack">加餐</span><br><strong>一个苹果</strong></div></div>
-                <div class="list-row"><div class="time-col">21:00</div><div class="content-col"><span class="tag tag-dinner">关东煮</span><br><strong>萝卜+魔芋丝+2串鸡肉丸</strong></div></div>
-            </div>
-            <div class="card">
-                <div class="list-header"><span>周四 Thu (深海蛋白)</span></div>
-                <div class="list-row"><div class="time-col">12:00</div><div class="content-col"><span class="tag tag-lunch">波奇饭</span><br><strong>三文鱼/金枪鱼波奇饭</strong> (紫米少一半)</div></div>
-                <div class="list-row"><div class="time-col">16:30</div><div class="content-col"><span class="tag tag-snack">练前</span><br><strong>一根玉米</strong> (为练肩充能)</div></div>
-                <div class="list-row"><div class="time-col">21:00</div><div class="content-col"><span class="tag tag-dinner">Wagas</span><br><strong>大虾芒果沙拉</strong> (不吃芒果)</div></div>
-            </div>
-            <div class="card">
-                <div class="list-header"><span>周五 Fri (快乐)</span></div>
-                <div class="list-row"><div class="time-col">12:00</div><div class="content-col"><span class="tag tag-lunch">火锅/牛肉</span><br><strong>吊龙肉 + 大量生菜 + 少量粿条</strong></div></div>
-                <div class="list-row"><div class="time-col">21:00</div><div class="content-col"><span class="tag tag-dinner">便利店</span><br><strong>即食鸡胸肉 + 小番茄</strong></div></div>
-            </div>
-             <div class="card">
-                <div class="list-header"><span style="color:var(--success)">周六 Sat (欺骗餐)</span></div>
-                <div class="list-row"><div class="time-col">12:00</div><div class="content-col"><span class="tag tag-lunch" style="background:#E8F5E9; color:#2E7D32;">放纵</span><br><strong>杭帮菜/炒菜：吃肉吃鱼吃虾！</strong></div></div>
-                <div class="list-row"><div class="time-col">21:00</div><div class="content-col"><span class="tag tag-dinner">极低</span><br><strong>饿着，或者一杯脱脂奶</strong></div></div>
-            </div>
-             <div class="card">
-                <div class="list-header"><span>周日 Sun (克制)</span></div>
-                <div class="list-row"><div class="time-col">12:00</div><div class="content-col"><span class="tag tag-lunch">轻食</span><br><strong>荞麦冷面 + 鸡腿肉</strong></div></div>
-                <div class="list-row"><div class="time-col">21:00</div><div class="content-col"><span class="tag tag-dinner">刷脂</span><br><strong>3个蛋白 + 一个西红柿</strong></div></div>
-            </div>
+            <div class="card"><div class="list-header"><span>周一 Mon (清淡)</span></div><div class="list-row"><div class="time-col">12:00</div><div class="content-col"><span class="tag tag-lunch">沙野轻食</span><br><strong>黑椒牛排意面</strong> (意面吃一半)</div></div><div class="list-row"><div class="time-col">16:30</div><div class="content-col"><span class="tag tag-snack">练前</span><br><strong>一根香蕉</strong> (快碳)</div></div><div class="list-row"><div class="time-col">21:00</div><div class="content-col"><span class="tag tag-dinner">练后</span><br><strong>2个水煮蛋 + 黄瓜</strong> (0碳水)</div></div></div>
+            <div class="card"><div class="list-header"><span>周二 Tue (中餐改造)</span></div><div class="list-row"><div class="time-col">12:00</div><div class="content-col"><span class="tag tag-lunch">老娘舅</span><br><strong>梅菜扣肉(去肥) + 水炖蛋 + 半碗饭</strong></div></div><div class="list-row"><div class="time-col">16:30</div><div class="content-col"><span class="tag tag-snack">罗森</span><br><strong>1片全麦面包</strong></div></div><div class="list-row"><div class="time-col">21:00</div><div class="content-col"><span class="tag tag-dinner">轻食</span><br><strong>凯撒沙拉</strong> (只要鸡肉和菜)</div></div></div>
+            <div class="card"><div class="list-header"><span>周三 Wed (低脂)</span></div><div class="list-row"><div class="time-col">12:00</div><div class="content-col"><span class="tag tag-lunch">赛百味</span><br><strong>香烤牛肉</strong> (挖空面包芯，不加酱)</div></div><div class="list-row"><div class="time-col">16:30</div><div class="content-col"><span class="tag tag-snack">加餐</span><br><strong>一个苹果</strong></div></div><div class="list-row"><div class="time-col">21:00</div><div class="content-col"><span class="tag tag-dinner">关东煮</span><br><strong>萝卜+魔芋丝+2串鸡肉丸</strong></div></div></div>
+            <div class="card"><div class="list-header"><span>周四 Thu (深海蛋白)</span></div><div class="list-row"><div class="time-col">12:00</div><div class="content-col"><span class="tag tag-lunch">波奇饭</span><br><strong>三文鱼/金枪鱼波奇饭</strong> (紫米少一半)</div></div><div class="list-row"><div class="time-col">16:30</div><div class="content-col"><span class="tag tag-snack">练前</span><br><strong>一根玉米</strong> (为练肩充能)</div></div><div class="list-row"><div class="time-col">21:00</div><div class="content-col"><span class="tag tag-dinner">Wagas</span><br><strong>大虾芒果沙拉</strong> (不吃芒果)</div></div></div>
+            <div class="card"><div class="list-header"><span>周五 Fri (快乐)</span></div><div class="list-row"><div class="time-col">12:00</div><div class="content-col"><span class="tag tag-lunch">火锅/牛肉</span><br><strong>吊龙肉 + 大量生菜 + 少量粿条</strong></div></div><div class="list-row"><div class="time-col">21:00</div><div class="content-col"><span class="tag tag-dinner">便利店</span><br><strong>即食鸡胸肉 + 小番茄</strong></div></div></div>
+            <div class="card"><div class="list-header"><span style="color:var(--success)">周六 Sat (欺骗餐)</span></div><div class="list-row"><div class="time-col">12:00</div><div class="content-col"><span class="tag tag-lunch" style="background:#E8F5E9; color:#2E7D32;">放纵</span><br><strong>杭帮菜/炒菜：吃肉吃鱼吃虾！</strong></div></div><div class="list-row"><div class="time-col">21:00</div><div class="content-col"><span class="tag tag-dinner">极低</span><br><strong>饿着，或者一杯脱脂奶</strong></div></div></div>
+            <div class="card"><div class="list-header"><span>周日 Sun (克制)</span></div><div class="list-row"><div class="time-col">12:00</div><div class="content-col"><span class="tag tag-lunch">轻食</span><br><strong>荞麦冷面 + 鸡腿肉</strong></div></div><div class="list-row"><div class="time-col">21:00</div><div class="content-col"><span class="tag tag-dinner">刷脂</span><br><strong>3个蛋白 + 一个西红柿</strong></div></div></div>
         </div>
 
         <div id="b-workout" class="section">
-            <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header">
-                    <div><strong>Day 1: 胸部 & 三头</strong><div class="ex-detail">推力日 · 基础力量</div></div><div>▼</div>
-                </div>
-                <div class="workout-body">
-                    <div class="ex-item">
-                        <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary); stroke-width:2.5; fill:none; stroke-linecap:round;"><line x1="5" y1="40" x2="45" y2="40" stroke="#ddd"/><path d="M15 38 L35 38" stroke="#333" stroke-width="3"/><g class="anim-push-bar"><line x1="10" y1="20" x2="40" y2="20" stroke="#FF3B30" stroke-width="3"/><path d="M18 38 L15 20 M32 38 L35 20" stroke="#333" stroke-width="2"/></g></svg></div>
-                        <div class="ex-info"><div class="ex-name">1. 坐姿器械推胸</div><div class="ex-detail">4组 x 12次 (重量递增)</div></div>
-                    </div>
-                    <div class="ex-item">
-                         <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary); stroke-width:2.5; fill:none; stroke-linecap:round;"><path d="M25 10 L25 40" stroke="#ddd" stroke-width="2"/><path class="anim-pull-arm" d="M25 15 L20 30" stroke="#333"/><line x1="15" y1="30" x2="35" y2="30" stroke="#FF3B30"/></svg></div>
-                        <div class="ex-info"><div class="ex-name">2. 绳索下压 (三头)</div><div class="ex-detail">4组 x 15次 (夹紧大臂)</div></div>
-                    </div>
-                     <div class="ex-item">
-                         <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--success); stroke-width:2.5; fill:none; stroke-linecap:round;"><path class="anim-run-leg-l" d="M25 28 L18 38 L15 45" stroke="#333"/><path class="anim-run-leg-r" d="M25 28 L32 38 L35 45" stroke="#333"/></svg></div>
-                        <div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 爬坡走 45分钟</div><div class="ex-detail">坡度12 / 速度4.5</div></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>Day 2: 背部 & 二头</strong><div class="ex-detail">拉力日 · 改善体态</div></div><div>▼</div></div>
-                <div class="workout-body">
-                    <div class="ex-item">
-                        <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--purple); stroke-width:2.5; fill:none; stroke-linecap:round;"><g class="anim-pull-arm"><path d="M25 20 L10 10 M25 20 L40 10" stroke="#333"/><line x1="5" y1="10" x2="45" y2="10" stroke="#AF52DE" stroke-width="3"/></g></svg></div>
-                        <div class="ex-info"><div class="ex-name">1. 高位下拉</div><div class="ex-detail">4组 x 12次</div></div>
-                    </div>
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name">2. 坐姿划船</div><div class="ex-detail">4组 x 12次</div></div></div>
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 变速跑 5KM</div><div class="ex-detail">跑1走1 循环</div></div></div>
-                </div>
-            </div>
-
-            <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>Day 3: 腿部轰炸</strong><div class="ex-detail">消耗最大 · 意志力日</div></div><div>▼</div></div>
-                <div class="workout-body">
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name">1. 腿举 / 深蹲</div><div class="ex-detail">4组 x 12次 (大重量)</div></div></div>
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name">2. 高脚杯深蹲</div><div class="ex-detail">4组 x 15次 (快节奏)</div></div></div>
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 椭圆机 40分钟</div><div class="ex-detail">阻力中等</div></div></div>
-                </div>
-            </div>
-
-            <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>Day 4: 肩部 & 腹肌</strong><div class="ex-detail">视觉显瘦 · 倒三角</div></div><div>▼</div></div>
-                <div class="workout-body">
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name">1. 坐姿哑铃推举</div><div class="ex-detail">4组 x 12次</div></div></div>
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name">2. 哑铃侧平举</div><div class="ex-detail">5组 x 15次</div></div></div>
-                </div>
-            </div>
-            
-            <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>Day 5: 全身循环 (HIIT)</strong><div class="ex-detail">高强度 · 暴汗</div></div><div>▼</div></div>
-                <div class="workout-body">
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name">深蹲x15 / 俯卧撑x10 / 开合跳x30</div><div class="ex-detail">循环4组，组间休90秒</div></div></div>
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 收尾：慢跑 30分钟</div></div></div>
-                </div>
-            </div>
-            
-             <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>Day 6: 有氧耐力日</strong></div><div>▼</div></div>
-                <div class="workout-body"><div class="ex-item"><div class="ex-info"><div class="ex-name">户外跑/骑行/登山</div><div class="ex-detail">持续运动 60 分钟以上</div></div></div></div>
-            </div>
-            
-             <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>Day 7: 彻底休息</strong></div><div>▼</div></div>
-                <div class="workout-body"><div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50"><text x="12" y="32" font-size="20" class="anim-zzz">Z</text><text x="28" y="20" font-size="12" class="anim-zzz" style="animation-delay:0.5s">z</text></svg></div><div class="ex-info"><div class="ex-name">睡觉，拉伸</div></div></div></div>
-            </div>
+            <div class="card" onclick="toggleCard(this)"><div class="workout-header"><div><strong>Day 1: 胸部 & 三头</strong><div class="ex-detail">推力日</div></div><div>▼</div></div><div class="workout-body"><div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50"><path d="M15 38 L35 38" stroke="#333" stroke-width="3"/><g class="anim-push-bar"><line x1="10" y1="20" x2="40" y2="20" stroke="#FF3B30" stroke-width="3"/></g></svg></div><div class="ex-info"><div class="ex-name">1. 坐姿器械推胸</div><div class="ex-detail">4组 x 12次</div></div></div><div class="ex-item"><div class="ex-info"><div class="ex-name">2. 绳索下压</div><div class="ex-detail">4组 x 15次</div></div></div><div class="ex-item"><div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 爬坡走 45分钟</div></div></div></div></div>
+            <div class="card" onclick="toggleCard(this)"><div class="workout-header"><div><strong>Day 2: 背部 & 二头</strong><div class="ex-detail">拉力日</div></div><div>▼</div></div><div class="workout-body"><div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--purple); stroke-width:2.5; fill:none;"><g class="anim-pull-arm"><path d="M25 20 L10 10 M25 20 L40 10" stroke="#333"/></g></svg></div><div class="ex-info"><div class="ex-name">1. 高位下拉</div><div class="ex-detail">4组 x 12次</div></div></div><div class="ex-item"><div class="ex-info"><div class="ex-name">2. 坐姿划船</div><div class="ex-detail">4组 x 12次</div></div></div></div></div>
+            <div class="card" onclick="toggleCard(this)"><div class="workout-header"><div><strong>Day 3: 腿部轰炸</strong></div><div>▼</div></div><div class="workout-body"><div class="ex-item"><div class="ex-info"><div class="ex-name">深蹲 / 腿举</div><div class="ex-detail">4组 x 12次</div></div></div><div class="ex-item"><div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 椭圆机 40分钟</div></div></div></div></div>
+            <div class="card" onclick="toggleCard(this)"><div class="workout-header"><div><strong>Day 4: 肩 & 腹肌</strong></div><div>▼</div></div><div class="workout-body"><div class="ex-item"><div class="ex-info"><div class="ex-name">坐姿推举 / 侧平举</div></div></div></div></div>
+            <div class="card" onclick="toggleCard(this)"><div class="workout-header"><div><strong>Day 5: HIIT</strong></div><div>▼</div></div><div class="workout-body"><div class="ex-item"><div class="ex-info"><div class="ex-name">深蹲/俯卧撑/开合跳</div><div class="ex-detail">循环4组</div></div></div></div></div>
+            <div class="card" onclick="toggleCard(this)"><div class="workout-header"><div><strong>Day 6: 有氧耐力</strong></div><div>▼</div></div><div class="workout-body"><div class="ex-item"><div class="ex-info"><div class="ex-name">户外跑 60分钟</div></div></div></div></div>
+            <div class="card" onclick="toggleCard(this)"><div class="workout-header"><div><strong>Day 7: 休息</strong></div><div>▼</div></div><div class="workout-body"><div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50"><text x="12" y="32" font-size="20" class="anim-zzz">Z</text></svg></div><div class="ex-info"><div class="ex-name">睡觉，拉伸</div></div></div></div></div>
         </div>
 
         <div id="b-feedback" class="section">
@@ -461,84 +372,31 @@
             <div class="card" style="border:1px solid #FFCDD2;">
                 <div class="list-header" style="background: #FFCDD2; color:#D32F2F;"><span>黄金 Routine</span><span>雷打不动</span></div>
                 <div class="list-row routine-row"><div class="time-col">07:30</div><div class="content-col"><strong>🌽 1根玉米 + 1个水煮蛋</strong><br><span style="font-size:12px; color:#666;">+ 黑咖啡/无糖豆浆 (消水肿)</span></div></div>
-                <div class="list-row routine-row"><div class="time-col">全天</div><div class="content-col"><strong>💧 2000ml 以上</strong><br><span style="font-size:12px; color:#666;">上午1升，下午1升</span></div></div>
+                <div class="list-row routine-row"><div class="time-col">全天</div><div class="content-col"><strong>💧 2000ml 以上</strong><br><span style="font-size:12px; color:#666;">上午1升，下午1升 (加速代谢)</span></div></div>
+                <div class="list-row routine-row"><div class="time-col">23:00</div><div class="content-col"><strong>🌙 强制关机睡眠</strong><br><span style="font-size:12px; color:#666;">保证7.5小时睡眠</span></div></div>
             </div>
 
+            <div class="card"><div class="list-header"><span>周一 Mon (鸡肉日)</span></div><div class="list-row"><div class="time-col">午餐</div><div class="content-col"><span class="tag tag-lunch">轻食</span><br><strong>香煎鸡胸肉能量碗</strong> (油醋汁 1/3)</div></div><div class="list-row"><div class="time-col">晚餐</div><div class="content-col"><span class="tag tag-dinner">中餐</span><br><strong>香菇滑鸡(去皮) + 青菜 + 半碗饭</strong></div></div></div>
+            <div class="card"><div class="list-header"><span>周二 Tue (牛肉日/练背)</span></div><div class="list-row"><div class="time-col">午餐</div><div class="content-col"><span class="tag tag-lunch">简餐</span><br><strong>黑椒牛柳意面 / 卤牛肉饭</strong></div></div><div class="list-row"><div class="time-col">晚餐</div><div class="content-col"><span class="tag tag-dinner">沙拉</span><br><strong>鲜虾牛油果/牛肉温沙拉</strong></div></div></div>
+            <div class="card"><div class="list-header"><span>周三 Wed (鱼虾日)</span></div><div class="list-row"><div class="time-col">午餐</div><div class="content-col"><span class="tag tag-lunch">推荐</span><br><strong>滑蛋虾仁饭 / 鲜虾波奇碗</strong></div></div><div class="list-row"><div class="time-col">晚餐</div><div class="content-col"><span class="tag tag-dinner">日料</span><br><strong>刺身沙拉 / 手卷</strong> (无酱)</div></div></div>
+            <div class="card"><div class="list-header"><span>周四 Thu (素食清肠)</span></div><div class="list-row"><div class="time-col">午餐</div><div class="content-col"><span class="tag tag-lunch">麻辣烫</span><br><strong>清汤煮菜+豆制品+红薯</strong></div></div><div class="list-row"><div class="time-col">晚餐</div><div class="content-col"><span class="tag tag-dinner">极简</span><br><strong>酸奶 + 苹果 + 坚果</strong></div></div></div>
+            <div class="card"><div class="list-header"><span>周五 Fri (鸡腿日)</span></div><div class="list-row"><div class="time-col">午餐</div><div class="content-col"><span class="tag tag-lunch">快餐</span><br><strong>去皮照烧鸡腿饭</strong> (饭吃一半)</div></div><div class="list-row"><div class="time-col">晚餐</div><div class="content-col"><span class="tag tag-dinner">Subway</span><br><strong>金枪鱼三明治</strong> (全麦/不加酱)</div></div></div>
+            <div class="card"><div class="list-header"><span style="color:var(--success)">周六 Sat (欺骗餐)</span></div><div class="list-row"><div class="time-col">午餐</div><div class="content-col"><span class="tag tag-lunch" style="background:#E8F5E9; color:#2E7D32;">放纵</span><br><strong>火锅/炒菜 (只吃肉菜，不沾麻酱)</strong></div></div><div class="list-row"><div class="time-col">晚餐</div><div class="content-col"><span class="tag tag-dinner">平衡</span><br><strong>牛奶 + 一个水果</strong></div></div></div>
             <div class="card">
-                <div class="list-header"><span>周一 Mon (鸡肉日)</span></div>
-                <div class="list-row"><div class="time-col">午餐</div><div class="content-col"><span class="tag tag-lunch">轻食</span><br><strong>香煎鸡胸肉能量碗</strong> (油醋汁 1/3)</div></div>
-                <div class="list-row"><div class="time-col">晚餐</div><div class="content-col"><span class="tag tag-dinner">中餐</span><br><strong>香菇滑鸡(去皮) + 青菜 + 半碗饭</strong></div></div>
-            </div>
-            <div class="card">
-                <div class="list-header"><span>周二 Tue (牛肉日/练背)</span></div>
-                <div class="list-row"><div class="time-col">午餐</div><div class="content-col"><span class="tag tag-lunch">简餐</span><br><strong>黑椒牛柳意面 / 卤牛肉饭</strong></div></div>
-                <div class="list-row"><div class="time-col">晚餐</div><div class="content-col"><span class="tag tag-dinner">沙拉</span><br><strong>鲜虾牛油果/牛肉温沙拉</strong></div></div>
-            </div>
-            <div class="card">
-                <div class="list-header"><span>周三 Wed (鱼虾日)</span></div>
-                <div class="list-row"><div class="time-col">午餐</div><div class="content-col"><span class="tag tag-lunch">推荐</span><br><strong>滑蛋虾仁饭 / 鲜虾波奇碗</strong></div></div>
-                <div class="list-row"><div class="time-col">晚餐</div><div class="content-col"><span class="tag tag-dinner">日料</span><br><strong>刺身沙拉 / 手卷</strong> (无酱)</div></div>
-            </div>
-             <div class="card">
-                <div class="list-header"><span>周四 Thu (素食清肠)</span></div>
-                <div class="list-row"><div class="time-col">午餐</div><div class="content-col"><span class="tag tag-lunch">麻辣烫</span><br><strong>清汤煮菜+豆制品+红薯</strong></div></div>
-                <div class="list-row"><div class="time-col">晚餐</div><div class="content-col"><span class="tag tag-dinner">极简</span><br><strong>酸奶 + 苹果 + 坚果</strong></div></div>
-            </div>
-            <div class="card">
-                <div class="list-header"><span>周五 Fri (鸡腿日)</span></div>
-                <div class="list-row"><div class="time-col">午餐</div><div class="content-col"><span class="tag tag-lunch">快餐</span><br><strong>去皮照烧鸡腿饭</strong> (饭吃一半)</div></div>
-                <div class="list-row"><div class="time-col">晚餐</div><div class="content-col"><span class="tag tag-dinner">Subway</span><br><strong>金枪鱼三明治</strong> (全麦/不加酱)</div></div>
-            </div>
-            <div class="card">
-                <div class="list-header"><span style="color:var(--success)">周六 Sat (欺骗餐)</span></div>
-                <div class="list-row"><div class="time-col">午餐</div><div class="content-col"><span class="tag tag-lunch" style="background:#E8F5E9; color:#2E7D32;">放纵</span><br><strong>火锅/炒菜 (只吃肉菜，不沾麻酱)</strong></div></div>
-                <div class="list-row"><div class="time-col">晚餐</div><div class="content-col"><span class="tag tag-dinner">平衡</span><br><strong>牛奶 + 一个水果</strong></div></div>
+                <div class="list-header"><span>周日 Sun (回归克制)</span></div>
+                <div class="list-row"><div class="time-col">午餐</div><div class="content-col"><span class="tag tag-lunch">轻食</span><br><strong>荞麦冷面 + 鸡腿肉/牛肉片</strong></div></div>
+                <div class="list-row"><div class="time-col">晚餐</div><div class="content-col"><span class="tag tag-dinner">刷脂</span><br><strong>3个蛋白 + 一根黄瓜</strong> (无油)</div></div>
             </div>
         </div>
 
         <div id="c-workout" class="section">
-            <div class="card" onclick="toggleCard(this)" style="border:1px solid #E1BEE7;">
-                <div class="workout-header" style="background:#F3E5F5;"><div><strong style="color:#7B1FA2;">🩸 生理期特供 (1.6 - 1.9)</strong><div class="ex-detail">最高优先级</div></div><div>▼</div></div>
-                <div class="workout-body">
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name">Day 1-3 (量大时)</div><div class="ex-detail">全休 / 简单拉伸 / 多睡觉 / 喝温水</div></div></div>
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name">Day 4 (快结束)</div><div class="ex-detail">恢复性快走 40分钟 (不出大汗)</div></div></div>
-                </div>
-            </div>
-
+            <div class="card" onclick="toggleCard(this)" style="border:1px solid #E1BEE7;"><div class="workout-header" style="background:#F3E5F5;"><div><strong style="color:#7B1FA2;">🩸 生理期特供 (1.6 - 1.9)</strong></div><div>▼</div></div><div class="workout-body"><div class="ex-item"><div class="ex-info"><div class="ex-name">Day 1-3 (量大时)</div><div class="ex-detail">全休 / 简单拉伸 / 多睡觉 / 喝温水</div></div></div><div class="ex-item"><div class="ex-info"><div class="ex-name">Day 4 (快结束)</div><div class="ex-detail">恢复性快走 40分钟 (不出大汗)</div></div></div></div></div>
+            <div class="card" onclick="toggleCard(this)"><div class="workout-header"><div><strong>周一 Mon (Plan A)</strong><div class="ex-detail">下肢塑形</div></div><div>▼</div></div><div class="workout-body"><div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary); stroke-width:2.5; fill:none;"><g class="anim-squat-body"><circle cx="25" cy="10" r="4" stroke="#333"/><line x1="25" y1="14" x2="25" y2="30" stroke="#333"/><path d="M25 30 L15 45 M25 30 L35 45" stroke="#333"/></g></svg></div><div class="ex-info"><div class="ex-name">1. 高脚杯深蹲</div><div class="ex-detail">4组 x 15次</div></div></div><div class="ex-item"><div class="ex-info"><div class="ex-name">2. 哑铃罗马尼亚硬拉</div><div class="ex-detail">4组 x 12次</div></div></div></div></div>
+            <div class="card" onclick="toggleCard(this)"><div class="workout-header"><div><strong>周二 Tue (Plan B)</strong><div class="ex-detail">上肢美背</div></div><div>▼</div></div><div class="workout-body"><div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--purple); stroke-width:2.5; fill:none;"><g class="anim-pull-arm"><path d="M25 20 L10 10 M25 20 L40 10" stroke="#333"/></g></svg></div><div class="ex-info"><div class="ex-name">1. 高位下拉</div><div class="ex-detail">4组 x 12次</div></div></div><div class="ex-item"><div class="ex-info"><div class="ex-name">2. 坐姿划船</div><div class="ex-detail">3组 x 15次</div></div></div></div></div>
+            <div class="card" onclick="toggleCard(this)"><div class="workout-header"><div><strong>周六 Sat (Cardio)</strong></div><div>▼</div></div><div class="workout-body"><div class="ex-item"><div class="ex-info"><div class="ex-name">有氧运动 45-60分钟</div><div class="ex-detail">户外跑 / 爬山 / 单车</div></div></div></div></div>
             <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>周一 Mon (Plan A)</strong><div class="ex-detail">下肢塑形 & 提臀</div></div><div>▼</div></div>
-                <div class="workout-body">
-                    <div class="ex-item">
-                        <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary); stroke-width:2.5; fill:none; stroke-linecap:round;"><g class="anim-squat-body"><circle cx="25" cy="10" r="4" stroke="#333"/><line x1="25" y1="14" x2="25" y2="30" stroke="#333"/><path d="M25 30 L15 45 M25 30 L35 45" stroke="#333"/></g></svg></div>
-                        <div class="ex-info"><div class="ex-name">1. 高脚杯深蹲</div><div class="ex-detail">4组 x 15次 (手捧哑铃)</div></div>
-                    </div>
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name">2. 哑铃罗马尼亚硬拉</div><div class="ex-detail">4组 x 12次</div></div></div>
-                    <div class="ex-item" style="background:#FFF3E0;"><div class="ex-info"><div class="ex-name" style="color:#E65100">⭐ 3. 侧卧哑铃抬腿 (替代)</div><div class="ex-detail">4组 x 20次/侧</div></div></div>
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 爬坡走 25分钟</div><div class="ex-detail">坡度10-12 / 速度4.5</div></div></div>
-                </div>
-            </div>
-
-            <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>周二 Tue (Plan B)</strong><div class="ex-detail">上肢美背 & 核心</div></div><div>▼</div></div>
-                <div class="workout-body">
-                    <div class="ex-item">
-                        <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--purple); stroke-width:2.5; fill:none; stroke-linecap:round;"><g class="anim-pull-arm"><path d="M25 20 L10 10 M25 20 L40 10" stroke="#333"/><line x1="5" y1="10" x2="45" y2="10" stroke="#AF52DE" stroke-width="3"/></g></svg></div>
-                        <div class="ex-info"><div class="ex-name">1. 高位下拉</div><div class="ex-detail">4组 x 12次 (沉肩)</div></div>
-                    </div>
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name">2. 坐姿划船</div><div class="ex-detail">3组 x 15次</div></div></div>
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name">3. 平板支撑 & 卷腹</div></div></div>
-                    <div class="ex-item"><div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 椭圆机 25分钟</div></div></div>
-                </div>
-            </div>
-
-            <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>周六 Sat (Cardio)</strong><div class="ex-detail">户外 / 纯有氧</div></div><div>▼</div></div>
-                <div class="workout-body">
-                    <div class="ex-item">
-                        <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--success); stroke-width:2.5; fill:none; stroke-linecap:round;"><path class="anim-run-leg-l" d="M25 28 L18 38 L15 45" stroke="#333"/><path class="anim-run-leg-r" d="M25 28 L32 38 L35 45" stroke="#333"/></svg></div>
-                        <div class="ex-info"><div class="ex-name">有氧运动 45-60分钟</div><div class="ex-detail">户外跑 / 爬山 / 单车 / 逛街快走</div></div>
-                    </div>
-                </div>
+                <div class="workout-header"><div><strong>周日 Sun (Rest)</strong><div class="ex-detail">彻底休息</div></div><div>▼</div></div>
+                <div class="workout-body"><div class="ex-item"><div class="ex-info"><div class="ex-name">不进健身房</div><div class="ex-detail">恢复日，泡脚</div></div></div></div>
             </div>
         </div>
 
@@ -575,20 +433,15 @@
 
     <script>
         function switchView(viewId) {
-            // 隐藏所有
             document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active'));
-            // 显示目标
             document.getElementById(viewId).classList.add('active');
-            // 回到顶部
             window.scrollTo(0,0);
         }
 
         function showTab(sectionId, btn, viewId) {
-            // 只在当前 View 下操作
             const view = document.getElementById(viewId);
             view.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
             view.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            
             view.querySelector('#' + sectionId).classList.add('active');
             btn.classList.add('active');
         }
