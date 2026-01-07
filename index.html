@@ -62,10 +62,30 @@
         .entry-card:active { transform: scale(0.98); }
         .entry-info h2 { margin: 0 0 8px 0; font-size: 20px; }
         .entry-info p { margin: 0; font-size: 13px; color: var(--text-sub); }
-        .entry-icon { font-size: 40px; }
+        
+        /* 火柴人图标样式 */
+        .stick-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.9;
+        }
+        .stick-icon svg {
+            width: 50px;
+            height: 50px;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
         
         .card-binbin { border-left: 6px solid #007AFF; }
+        .card-binbin .stick-icon svg { stroke: #007AFF; }
+        
         .card-chaichai { border-left: 6px solid #FF2D55; }
+        .card-chaichai .stick-icon svg { stroke: #FF2D55; }
 
         /* --- 通用组件样式 (两个计划共用) --- */
         .header {
@@ -154,7 +174,6 @@
         .fb-content { font-size: 13px; color: #444; line-height: 1.5; background: #F9F9F9; padding: 10px; border-radius: 8px;}
 
         /* --- ⚠️ 变量隔离区 (Scoped CSS) --- */
-        /* Binbin 的专属颜色配置 */
         #view-binbin {
             --primary: #007AFF;
             --danger: #FF3B30;
@@ -162,7 +181,6 @@
             --warning: #FF9500;
             --purple: #AF52DE;
         }
-        /* Chaichai 的专属颜色配置 */
         #view-chaichai {
             --primary: #FF2D55;
             --danger: #FF3B30;
@@ -188,18 +206,24 @@
 
     <div id="home-view" class="view-container active">
         <div class="home-title">2026<br>开年冲刺计划</div>
-        <div class="home-subtitle">Day 2 · 坚持就是胜利</div>
+        <div class="home-subtitle">Day 3 · 1月6日</div>
 
         <div class="entry-card card-binbin" onclick="switchView('view-binbin')">
             <div class="entry-info">
                 <h2>BINBIN 减肥计划</h2>
                 <p>1月极限冲刺 · 15斤目标</p>
                 <div style="margin-top:10px;">
-                    <span class="badge">Day 2</span>
-                    <span class="badge" style="background:#007AFF">156斤</span>
+                    <span class="badge">Day 3</span>
+                    <span class="badge" style="background:#007AFF">156斤 ↘</span>
                 </div>
             </div>
-            <div class="entry-icon">🏋️‍♂️</div>
+            <div class="stick-icon">
+                <svg viewBox="0 0 50 50">
+                     <line x1="5" y1="15" x2="45" y2="15" stroke-width="4" stroke="#007AFF" />
+                     <line x1="8" y1="10" x2="8" y2="20" stroke-width="4" stroke="#007AFF" /> 
+                     <line x1="42" y1="10" x2="42" y2="20" stroke-width="4" stroke="#007AFF" />
+                     <circle cx="25" cy="18" r="4" stroke="#007AFF" /> <path d="M10 15 L25 24 L40 15" stroke="#007AFF" /> <line x1="25" y1="22" x2="25" y2="38" stroke="#007AFF" /> <path d="M15 45 L25 38 L35 45" stroke="#007AFF" /> </svg>
+            </div>
         </div>
 
         <div class="entry-card card-chaichai" onclick="switchView('view-chaichai')">
@@ -207,11 +231,15 @@
                 <h2>CHAICHAI 塑形计划</h2>
                 <p>开年塑形 · 108斤目标</p>
                 <div style="margin-top:10px;">
-                    <span class="badge">Day 2</span>
+                    <span class="badge">Day 3</span>
                     <span class="badge" style="background:#FF2D55">115斤(水肿)</span>
                 </div>
             </div>
-            <div class="entry-icon">🧘‍♀️</div>
+            <div class="stick-icon">
+                <svg viewBox="0 0 50 50">
+                    <circle cx="25" cy="15" r="4" stroke="#FF2D55" /> <line x1="25" y1="19" x2="25" y2="35" stroke="#FF2D55" /> <path d="M12 40 L25 35 L38 40" stroke="#FF2D55" /> <path d="M15 28 L25 22 L35 28" stroke="#FF2D55" /> <path d="M10 45 Q25 50 40 45" stroke="#FF2D55" stroke-width="1.5" stroke-dasharray="2,2" />
+                </svg>
+            </div>
         </div>
         
         <div style="text-align:center; color:#ccc; font-size:12px; margin-top:40px;">
@@ -236,8 +264,8 @@
                 <span class="stat-lbl">剩余目标</span>
             </div>
             <div class="stat-item">
-                <span class="stat-val" style="color:var(--primary)">145</span>
-                <span class="stat-lbl">终极目标</span>
+                <span class="stat-val" style="color:var(--primary)">3</span>
+                <span class="stat-lbl">Day</span>
             </div>
         </div>
 
@@ -388,7 +416,7 @@
                     <div class="feedback-item">
                         <div class="feedback-dot"></div>
                         <div class="feedback-card">
-                            <div class="fb-date"><span>📅 1月6日 (Day 2)</span><span style="color:var(--success)">完美执行</span></div>
+                            <div class="fb-date"><span>📅 1月6日 (Day 3)</span><span style="color:var(--success)">保持势头</span></div>
                             <div class="fb-status">体重：156斤 (↘掉秤了！)</div>
                             <div class="fb-content">
                                 <strong>饮食：</strong>早餐半玉米+2蛋；午餐酸菜鱼+去皮鸡腿(油略大⚠️)；练后烤虾+蛋白粉。<br>
@@ -419,7 +447,7 @@
         <div class="dashboard">
             <div class="stat-item"><span class="stat-val" style="color:var(--text-main)">113</span><span class="stat-lbl">初始</span></div>
             <div class="stat-item"><span class="stat-val" style="color:#AF52DE">115</span><span class="stat-lbl">当前(水肿)</span></div>
-            <div class="stat-item"><span class="stat-val" style="color:var(--primary)">2.5</span><span class="stat-lbl">Day</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:var(--primary)">3</span><span class="stat-lbl">Day</span></div>
         </div>
 
         <div class="tabs">
