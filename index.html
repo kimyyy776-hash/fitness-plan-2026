@@ -214,14 +214,14 @@
 
     <div id="home-view" class="view-container active">
         <div class="home-title">2026<br>开年冲刺计划</div>
-        <div class="home-subtitle">Day 5 · 1月9日</div>
+        <div class="home-subtitle">Day 7 · 1月11日</div>
 
         <div class="entry-card card-binbin" onclick="switchView('view-binbin')">
             <div class="entry-info">
                 <h2>BINBIN 减肥计划</h2>
                 <p>1月极限冲刺 · 15斤目标</p>
                 <div style="margin-top:10px;">
-                    <span class="badge" style="background:#007AFF">155.3斤 ↘</span>
+                    <span class="badge" style="background:#007AFF">155.3斤</span>
                 </div>
             </div>
             <div class="entry-icon">🏋️‍♂️</div>
@@ -232,26 +232,26 @@
                 <h2>CHAICHAI 塑形计划</h2>
                 <p>开年塑形 · 108斤目标</p>
                 <div style="margin-top:10px;">
-                    <span class="badge" style="background:#FF2D55">生理期 (未称)</span>
+                    <span class="badge" style="background:#FF2D55">114.6斤</span>
                 </div>
             </div>
             <div class="entry-icon">🧘‍♀️</div>
         </div>
         
-        <div style="text-align:center; color:#ccc; font-size:12px; margin-top:40px;">Updated: 1月9日</div>
+        <div style="text-align:center; color:#ccc; font-size:12px; margin-top:40px;">Updated: 1月11日</div>
     </div>
 
     <div id="view-binbin" class="view-container">
         <div class="header">
             <div class="nav-back" onclick="switchView('home-view')">❮ 返回</div>
             <h1>极限冲刺 Pro</h1>
-            <span class="badge">Day 5 · 1月9日</span>
+            <span class="badge">Day 7 · 1月11日</span>
         </div>
 
         <div class="dashboard">
             <div class="stat-item"><span class="stat-val" style="color:var(--text-sub)">160</span><span class="stat-lbl">初始</span></div>
             <div class="stat-item"><span class="stat-val" style="color:var(--danger)">10.3</span><span class="stat-lbl">剩余目标</span></div>
-            <div class="stat-item"><span class="stat-val" style="color:var(--primary)">155.3<span style="font-size:14px">↘</span></span><span class="stat-lbl">当前</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:var(--primary)">155.3<span style="font-size:14px"> (Day6)</span></span><span class="stat-lbl">晨重</span></div>
         </div>
 
         <div class="tabs">
@@ -435,29 +435,51 @@
                  <div class="copy-box"><span style="position: absolute; right: 8px; top: 8px; font-size: 10px; background: #E5E5EA; padding: 2px 6px; border-radius: 4px; color: #888;">Copy</span>📅 日期：1月__日<br>🥘 饮食：<br>- 早：<br>- 午：<br>- 晚：<br>🏋️ 训练：(Plan A/B/休息)<br>- 状态：<br>⚖️ 体重：__斤</div>
                 <div style="text-align:center; margin-bottom:10px; font-weight:700; color:#ccc; font-size:12px;">—— 历史记录 ——</div>
                 <div class="feedback-list">
-                    
-                    <div class="feedback-item">
-                        <div class="feedback-dot"></div>
+
+                     <div class="feedback-item">
+                        <div class="feedback-dot" style="background:var(--warning); border-color:#FFF8E1"></div>
                         <div class="feedback-card">
-                            <div class="fb-date"><span>📅 1月9日 (Day 5)</span><span style="color:var(--success)">155.3斤 (↓0.1)</span></div>
-                            <div class="fb-status">完美执行 | 腿部残废，上肢轰炸</div>
+                            <div class="fb-date"><span>📅 1月11日 (Day 7)</span><span style="color:var(--warning)">157.7 (夜/肿)</span></div>
+                            <div class="fb-status">⚠️ 左肩预警 | 放纵餐</div>
                             <div class="fb-content">
-                                <strong>身体：</strong> 大腿内侧剧痛（起坐困难），延迟性酸痛(DOMS)爆发，但坚持训练肩胸👍。<br>
-                                <strong>饮食：</strong> 早餐未吃❌。午餐鸡腿+2蛋+米饭；晚餐虾+杏鲍菇+蛋。蛋白质非常充足！<br>
-                                <strong>训练：</strong> 坐姿反向飞鸟x56，推肩15kgx48(强！)，面拉x36。针对性强化上肢。<br>
-                                <strong>睡眠：</strong> 01:00入睡 (7.2h)，作息依然偏晚。
+                                <strong>训练：</strong> HIIT+爬坡40min非常顶！但左肩抬起困难，请立刻停止推举类动作！<br>
+                                <strong>饮食：</strong> 车厘子+火锅=糖油混合。晚称157.7是盐分锁水，勿焦虑。
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="feedback-item">
+                        <div class="feedback-dot"></div>
+                        <div class="feedback-card" style="opacity:0.9;">
+                            <div class="fb-date"><span>📅 1月10日 (Day 6)</span><span>155.3斤 (稳)</span></div>
+                            <div class="fb-status">休息回血 | 睡足9小时</div>
+                            <div class="fb-content">
+                                <strong>睡眠：</strong> 9小时睡眠是最大的亮点👍。<br>
+                                <strong>饮食：</strong> 早餐玉米好评，但晚餐200g米饭+鱼丸碳水太高，休息日应减碳。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feedback-item">
+                        <div class="feedback-dot" style="background:#ddd; border-color:#f5f5f5"></div>
+                        <div class="feedback-card" style="opacity:0.8;">
+                            <div class="fb-date"><span>📅 1月9日 (Day 5)</span><span style="color:var(--success)">155.3斤 (↓0.1)</span></div>
+                            <div class="fb-status">完美执行 | 腿部残废，上肢轰炸</div>
+                            <div class="fb-content">
+                                <strong>身体：</strong> 大腿内侧剧痛，DOMS爆发。<br>
+                                <strong>饮食：</strong> 早餐未吃❌。午餐晚餐蛋白充足。<br>
+                                <strong>训练：</strong> 坐姿反向飞鸟x56，推肩15kgx48(强！)。
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="feedback-item">
                         <div class="feedback-dot" style="background:#ddd; border-color:#f5f5f5"></div>
                         <div class="feedback-card" style="opacity:0.8;">
                             <div class="fb-date"><span>📅 1月8日 (Day 4)</span><span style="color:var(--warning)">⚠️ 严重酸痛休整</span></div>
-                            <div class="fb-status">状态：残废中 (DOMS) | 未称重</div>
                             <div class="fb-content">
-                                <strong>身体：</strong>全身酸痛，穿衣/驱动困难，手无力。强制休息。<br>
-                                <strong>饮食：</strong>金枪鱼波奇饭👍，晚餐沙拉👍。但22:30吃了烧烤虾+韭菜(盐+辣)，进食太晚影响生长激素。<br>
-                                <strong>睡眠：</strong>00:30入睡 (有进步)。
+                                <strong>身体：</strong>全身酸痛。强制休息。<br>
+                                <strong>饮食：</strong>22:30吃烧烤虾+韭菜(盐+辣)。
                             </div>
                         </div>
                     </div>
@@ -468,9 +490,8 @@
                             <div class="fb-date"><span>📅 1月7日 (Day 3)</span><span style="color:var(--success)">155.4斤 (↓0.6)</span></div>
                             <div class="fb-status">执行良好 | 上半身残废，下半身酸爽</div>
                             <div class="fb-content">
-                                <strong>饮食：</strong>早午餐还行，但半罐可乐是败笔❌。晚餐米饭200g略多。<br>
-                                <strong>训练：</strong>腿部到位！史密斯深蹲练到抽筋，拉伸很好无痛感。<br>
-                                <strong>睡眠：</strong>01:00入睡 (⚠️太晚了！肌肉都在熬夜中流失了)。
+                                <strong>训练：</strong>腿部到位！史密斯深蹲练到抽筋。<br>
+                                <strong>睡眠：</strong>01:00入睡 (⚠️太晚)。
                             </div>
                         </div>
                     </div>
@@ -481,19 +502,8 @@
                             <div class="fb-date"><span>📅 1月6日 (Day 2)</span><span style="color:var(--success)">保持势头</span></div>
                             <div class="fb-status">体重：156斤 (↘掉秤了！ )</div>
                             <div class="fb-content">
-                                <strong>饮食：</strong>早餐半玉米+2蛋；午餐酸菜鱼+去皮鸡腿(油略大 ⚠️ )；练后烤虾+蛋白粉。<br>
-                                <strong>训练：</strong>强度很大！高位下拉65kg，坐姿划船60kg。有氧3.64km。<br>
-                                <strong>睡眠：</strong>01:00入睡 (🔴太晚了！ )，睡足7.2小时。
-                            </div>
-                        </div>
-                    </div>
-                    <div class="feedback-item">
-                        <div class="feedback-dot" style="background:#ddd; border-color:#f5f5f5"></div>
-                        <div class="feedback-card" style="opacity:0.6;">
-                            <div class="fb-date"><span>📅 1月5日 (Day 1)</span><span style="color:var(--warning)">碳水超标</span></div>
-                            <div class="fb-content">
-                                <strong>饮食：</strong> 午餐意面吃多了(碳水超标)；晚餐3蛋+香蕉。<br>
-                                <strong>训练：</strong> 飞鸟10kg，夹胸38kg。有氧45分钟。
+                                <strong>训练：</strong>强度很大！高位下拉65kg。<br>
+                                <strong>睡眠：</strong>01:00入睡 (🔴太晚了！ )。
                             </div>
                         </div>
                     </div>
@@ -506,13 +516,13 @@
         <div class="header">
             <div class="nav-back" onclick="switchView('home-view')">❮ 返回</div>
             <h1>2026 塑形计划</h1>
-             <span class="badge">Day 5 · 1月9日</span>
+             <span class="badge">Day 7 · 1月11日</span>
         </div>
 
         <div class="dashboard">
             <div class="stat-item"><span class="stat-val" style="color:var(--text-sub)">113</span><span class="stat-lbl">初始</span></div>
             <div class="stat-item"><span class="stat-val" style="color:var(--danger)">7</span><span class="stat-lbl">剩余目标</span></div>
-            <div class="stat-item"><span class="stat-val" style="color:#AF52DE">115<span style="font-size:12px"> (未称)</span></span><span class="stat-lbl">当前</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:#AF52DE">114.6<span style="font-size:12px"> (最新)</span></span><span class="stat-lbl">当前</span></div>
         </div>
 
         <div class="tabs">
@@ -651,26 +661,48 @@
                 <div style="text-align:center; margin-bottom:10px; font-weight:700; color:#ccc; font-size:12px;">—— 历史记录 ——</div>
                 <div class="feedback-list">
 
-                    <div class="feedback-item">
-                        <div class="feedback-dot"></div>
+                     <div class="feedback-item">
+                        <div class="feedback-dot" style="background:var(--success); border-color:#E8F5E9"></div>
                         <div class="feedback-card">
-                            <div class="fb-date"><span>📅 1月9日 (Day 5)</span><span style="color:#AF52DE">生理期</span></div>
-                            <div class="fb-status">状态：睡美人模式 (12h睡眠)</div>
+                            <div class="fb-date"><span>📅 1月11日 (Day 7)</span><span style="color:var(--text-main)">有氧恢复 | 114.6斤</span></div>
+                            <div class="fb-status">状态：欺骗餐日</div>
                             <div class="fb-content">
-                                <strong>身体：</strong> 生理期调养中。睡了12小时，身体在全力修复。<br>
-                                <strong>饮食：</strong> 红糖阿胶姜茶暖宫好评👍。午餐米饭150g略多；晚餐只吃荞麦面包❌缺少蛋白质（建议加牛奶/蛋）。<br>
-                                <strong>睡眠：</strong> 12:30起床，睡足12小时，非常棒！
+                                <strong>饮食：</strong> 米村拌饭+火锅，全是高油高盐。虽是周末，但热量爆表。<br>
+                                <strong>训练：</strong> 椭圆机20min消食很棒，算是一点心理安慰。
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="feedback-item">
+                        <div class="feedback-dot" style="background:var(--danger); border-color:#FFEBEE"></div>
+                        <div class="feedback-card">
+                            <div class="fb-date"><span>📅 1月10日 (Day 6)</span><span style="color:var(--danger)">生理期</span></div>
+                            <div class="fb-status">⚠️ 警报：碳水炸弹</div>
+                            <div class="fb-content">
+                                <strong>饮食：</strong> 彻底红灯🚨。250g红烧鸡爪(高脂肪)+300g米饭。这是增肌期的吃法，减脂期大忌。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feedback-item">
+                        <div class="feedback-dot"></div>
+                        <div class="feedback-card" style="opacity:0.9;">
+                            <div class="fb-date"><span>📅 1月9日 (Day 5)</span><span style="color:#AF52DE">生理期</span></div>
+                            <div class="fb-status">状态：睡美人模式 (12h睡眠)</div>
+                            <div class="fb-content">
+                                <strong>身体：</strong> 生理期调养中。睡了12小时。<br>
+                                <strong>饮食：</strong> 红糖阿胶姜茶好评👍。晚餐只吃面包缺蛋白。
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="feedback-item">
                         <div class="feedback-dot" style="background:#ddd; border-color:#f5f5f5"></div>
                         <div class="feedback-card" style="opacity:0.8;">
-                            <div class="fb-date"><span>📅 1月8日 (Day 4)</span><span style="color:var(--text-main)">🩸 生理期 | 饮食尚可</span></div>
+                            <div class="fb-date"><span>📅 1月8日 (Day 4)</span><span style="color:var(--text-main)">🩸 生理期</span></div>
                             <div class="fb-status">状态：休息 (生理期) | 未称重</div>
                             <div class="fb-content">
-                                <strong>饮食：</strong>午餐麻辣烫(只吃豆制品+不吃主食)非常棒👍。晚餐鸡腿+青菜。夜宵22:30吃烧烤虾+韭菜，注意盐分。<br>
-                                <strong>睡眠：</strong>00:30入睡。
+                                <strong>饮食：</strong>麻辣烫(不吃主食)非常棒👍。夜宵22:30吃烧烤虾+韭菜，注意盐分。
                             </div>
                         </div>
                     </div>
@@ -679,29 +711,9 @@
                         <div class="feedback-dot" style="background:#ddd; border-color:#f5f5f5"></div>
                         <div class="feedback-card" style="opacity:0.8;">
                             <div class="fb-date"><span>📅 1月7日 (Day 3)</span><span>休息日</span></div>
-                            <div class="fb-status">体重：未称</div>
                             <div class="fb-content">
-                                <strong>饮食：</strong>早餐正常，午餐虾仁好评！<span style="color:var(--danger)">晚餐8个寿司</span>是隐形热量炸弹（米饭含糖），下次请换成刺身。<br>
-                                <strong>睡眠：</strong>01:00太晚了！
+                                <strong>饮食：</strong><span style="color:var(--danger)">晚餐8个寿司</span>是隐形热量炸弹。
                             </div>
-                        </div>
-                    </div>
-                    <div class="feedback-item">
-                        <div class="feedback-dot" style="background:#ddd; border-color:#f5f5f5"></div>
-                        <div class="feedback-card" style="opacity:0.8;">
-                            <div class="fb-date"><span>📅 1月6日 (Day 2)</span><span style="color:var(--danger)">115斤</span></div>
-                            <div class="fb-status">⚠️ 警报：重量过大 & 饮食红灯</div>
-                            <div class="fb-content">
-                                问题：高位下拉50kg太重，手臂疼痛。<br>
-                                饮食：午餐意面+烤肠导致水肿。
-                            </div>
-                        </div>
-                    </div>
-                     <div class="feedback-item">
-                        <div class="feedback-dot" style="background:#ddd; border-color:#f5f5f5"></div>
-                        <div class="feedback-card" style="opacity:0.6;">
-                            <div class="fb-date"><span>📅 1月5日 (Day 1)</span><span style="color:var(--warning)">完成一半</span></div>
-                            <div class="fb-content">晚餐粽子（高升糖），未做力量。</div>
                         </div>
                     </div>
                 </div>
