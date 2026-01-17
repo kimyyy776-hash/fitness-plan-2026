@@ -236,44 +236,44 @@
 
     <div id="home-view" class="view-container active">
         <div class="home-title">2026 第二周<br>强度进阶周</div>
-        <div class="home-subtitle">Day 11 · 1月15日 (周四)</div>
+        <div class="home-subtitle">Day 12 · 1月16日 (周五)</div>
 
         <div class="entry-card card-binbin" onclick="switchView('view-binbin')">
             <div class="entry-info">
                 <h2>BINBIN 减脂</h2>
-                <p>肩部力量爆发 · 完美执行</p>
+                <p>休息日 · 晚餐放纵</p>
                 <div style="margin-top:10px;">
-                    <span class="badge" style="background:#007AFF">154.9斤 (波动)</span>
+                    <span class="badge" style="background:#8E8E93">154.9斤 (未称)</span>
                 </div>
             </div>
-            <div class="entry-icon">🔥</div>
+            <div class="entry-icon">⏸️</div>
         </div>
 
         <div class="entry-card card-chaichai" onclick="switchView('view-chaichai')">
             <div class="entry-info">
                 <h2>CHAICHAI 塑形</h2>
-                <p>恢复期 · 饮食控制佳</p>
+                <p>🔥 有氧90min · 饮食红灯</p>
                 <div style="margin-top:10px;">
-                    <span class="badge" style="background:#FF2D55">112.5斤 (持平)</span>
+                    <span class="badge" style="background:#FF2D55">112.5斤 (未称)</span>
                 </div>
             </div>
-            <div class="entry-icon">⚡️</div>
+            <div class="entry-icon">🚴‍♀️</div>
         </div>
         
-        <div style="text-align:center; color:#ccc; font-size:12px; margin-top:40px;">Updated: 1月15日</div>
+        <div style="text-align:center; color:#ccc; font-size:12px; margin-top:40px;">Updated: 1月16日</div>
     </div>
 
     <div id="view-binbin" class="view-container">
         <div class="header">
             <div class="nav-back" onclick="switchView('home-view')">❮ 返回</div>
             <h1>Week 2: 进阶</h1>
-            <span class="badge">1月15日 · 周四</span>
+            <span class="badge">1月16日 · 周五</span>
         </div>
 
         <div class="dashboard">
             <div class="stat-item"><span class="stat-val" style="color:var(--text-sub)">160斤</span><span class="stat-lbl">初始</span></div>
             <div class="stat-item"><span class="stat-val" style="color:var(--danger)">28.9%</span><span class="stat-lbl">体脂率</span></div>
-            <div class="stat-item"><span class="stat-val" style="color:var(--primary)">154.9斤<span style="font-size:14px"> (↑0.6)</span></span><span class="stat-lbl">最新</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:var(--text-main)">154.9斤<span style="font-size:14px"> (Day11)</span></span><span class="stat-lbl">最新</span></div>
         </div>
 
         <div class="tabs">
@@ -487,14 +487,26 @@
         <div id="b-feedback" class="section">
              <div class="feedback-list">
                     <div class="feedback-item">
-                        <div class="feedback-dot" style="background:var(--success); border-color:#E8F5E9"></div>
+                        <div class="feedback-dot" style="background:var(--warning); border-color:#FFF8E1"></div>
+                        <div class="feedback-card">
+                            <div class="fb-date"><span>📅 1月16日 (Day 12)</span><span style="color:var(--text-sub)">未称重</span></div>
+                            <div class="fb-status">状态：休息日 | 晚餐放纵</div>
+                            <div class="fb-content">
+                                <strong>饮食：</strong> 午餐清蒸鱼很好。但22:00吃了烧烤（五花肉/丸子/土豆/兰花干），高油高钠炸弹！<br>
+                                <strong>训练：</strong> 休息日未训练。热量无法消耗，易囤积。<br>
+                                <strong>建议：</strong> 明早必须空腹有氧40min补救！
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="feedback-item">
+                        <div class="feedback-dot" style="background:var(--warning); border-color:#FFF8E1"></div>
                         <div class="feedback-card">
                             <div class="fb-date"><span>📅 1月15日 (Day 11)</span><span style="color:var(--warning)">154.9斤 (↑0.6)</span></div>
                             <div class="fb-status">状态：力量爆发 | 体重微弹</div>
                             <div class="fb-content">
-                                <strong>训练：</strong> 侧平举单手15kg+推举30kg非常强悍！请务必注意肩部安全。有氧30min打卡。<br>
-                                <strong>饮食：</strong> 晚餐关东煮(辣蟹柳棒)是高钠炸弹，叠加夜宵生蚝，导致水分滞留，体重微涨正常。<br>
-                                <strong>睡眠：</strong> 01:30睡太晚了。
+                                <strong>训练：</strong> 侧平举单手15kg+推举30kg非常强悍！<br>
+                                <strong>饮食：</strong> 晚餐关东煮+夜宵生蚝，钠含量高导致水肿。
                             </div>
                         </div>
                     </div>
@@ -504,9 +516,8 @@
                         <div class="feedback-card">
                             <div class="fb-date"><span>📅 1月14日 (Day 10)</span><span style="color:var(--success)">体脂狂降1.3%</span></div>
                             <div class="fb-content">
-                                <strong>体测：</strong> 78.4kg->77.8kg，体脂率30.2%->28.9%，骨骼肌↑0.4kg。这是最完美的【掉脂增肌】数据！<br>
-                                <strong>训练：</strong> 腿部强度很大(硬拉60kg)，直接拉高了代谢。<br>
-                                <strong>饮食：</strong> 早餐和午餐优秀，夜宵少吃烤虾更佳。
+                                <strong>体测：</strong> 78.4kg->77.8kg，体脂率30.2%->28.9%，骨骼肌↑0.4kg。完美！<br>
+                                <strong>训练：</strong> 腿部强度很大(硬拉60kg)。
                             </div>
                         </div>
                     </div>
@@ -516,8 +527,7 @@
                         <div class="feedback-card">
                             <div class="fb-date"><span>📅 1月13日 (Day 9)</span><span style="color:var(--warning)">155.4斤 (回弹↑1.1)</span></div>
                             <div class="fb-content">
-                                <strong>原因：</strong> 未如厕 + 午餐双碳水(米饭+红薯粉) + 夜宵烧烤(盐) = 暂时性水肿。<br>
-                                <strong>训练：</strong> 45分钟有氧非常棒👍！
+                                <strong>原因：</strong> 未如厕 + 午餐双碳水 + 夜宵烧烤(盐)。
                             </div>
                         </div>
                     </div>
@@ -527,8 +537,7 @@
                         <div class="feedback-card">
                             <div class="fb-date"><span>📅 1月12日 (Day 8)</span><span style="color:var(--success)">154.3斤 (暴跌↓3.4)</span></div>
                             <div class="fb-content">
-                                <strong>体重：</strong> 暴跌3.4斤，证实157.7为火锅水肿。大胜利！<br>
-                                <strong>训练：</strong> 上肢力量恢复，40kg推胸很猛。
+                                <strong>体重：</strong> 暴跌3.4斤，证实157.7为火锅水肿。
                             </div>
                         </div>
                     </div>
@@ -538,8 +547,7 @@
                         <div class="feedback-card" style="opacity:0.8;">
                             <div class="fb-date"><span>📅 1月11日 (Day 7)</span><span style="color:var(--warning)">157.7 (夜/肿)</span></div>
                             <div class="fb-content">
-                                <strong>训练：</strong> 左肩抬起困难(警报)。<br>
-                                <strong>饮食：</strong> 车厘子+火锅=盐分锁水。
+                                <strong>训练：</strong> 左肩抬起困难(警报)。
                             </div>
                         </div>
                     </div>
@@ -558,8 +566,7 @@
                         <div class="feedback-card" style="opacity:0.8;">
                             <div class="fb-date"><span>📅 1月9日 (Day 5)</span><span style="color:var(--success)">155.3斤 (↓0.1)</span></div>
                             <div class="fb-content">
-                                <strong>身体：</strong> 大腿内侧剧痛，DOMS爆发。<br>
-                                <strong>训练：</strong> 坐姿反向飞鸟x56，推肩15kgx48(强！)。
+                                <strong>身体：</strong> 大腿内侧剧痛，DOMS爆发。
                             </div>
                         </div>
                     </div>
@@ -569,8 +576,7 @@
                         <div class="feedback-card" style="opacity:0.8;">
                             <div class="fb-date"><span>📅 1月8日 (Day 4)</span><span style="color:var(--warning)">⚠️ 严重酸痛休整</span></div>
                             <div class="fb-content">
-                                <strong>身体：</strong>全身酸痛。强制休息。<br>
-                                <strong>饮食：</strong>22:30吃烧烤虾+韭菜(盐+辣)。
+                                <strong>身体：</strong>全身酸痛。强制休息。
                             </div>
                         </div>
                     </div>
@@ -599,8 +605,7 @@
                         <div class="feedback-card" style="opacity:0.6;">
                             <div class="fb-date"><span>📅 1月5日 (Day 1)</span><span style="color:var(--warning)">完成一半</span></div>
                             <div class="fb-content">
-                                <strong>饮食：</strong> 晚餐3蛋+香蕉。<br>
-                                <strong>训练：</strong> 飞鸟10kg，夹胸38kg。
+                                <strong>饮食：</strong> 晚餐3蛋+香蕉。
                             </div>
                         </div>
                     </div>
@@ -612,13 +617,13 @@
         <div class="header">
             <div class="nav-back" onclick="switchView('home-view')">❮ 返回</div>
             <h1>Week 2: 黄金燃脂</h1>
-            <span class="badge">1月15日 · 周四</span>
+            <span class="badge">1月16日 · 周五</span>
         </div>
 
         <div class="dashboard">
             <div class="stat-item"><span class="stat-val" style="color:var(--text-sub)">113</span><span class="stat-lbl">初始</span></div>
             <div class="stat-item"><span class="stat-val" style="color:var(--danger)">4.5</span><span class="stat-lbl">剩余目标</span></div>
-            <div class="stat-item"><span class="stat-val" style="color:#AF52DE">112.5<span style="font-size:14px"> (持平)</span></span><span class="stat-lbl">当前</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:#AF52DE">112.5<span style="font-size:14px"> (Day10)</span></span><span class="stat-lbl">最新</span></div>
         </div>
 
         <div class="tabs">
@@ -629,193 +634,43 @@
 
         <div id="c-diet" class="section active">
             <div class="alert-banner">✨ <strong>黄金期策略：</strong> 生理期结束，代谢最高的一周！严控油盐，效果翻倍。</div>
-
             <div class="card" style="border:1px solid #FFCDD2;">
                 <div class="list-header" style="background: #FFCDD2; color:#D32F2F;"><span>黄金 Routine</span></div>
                 <div class="list-row routine-row"><div class="time-col">早</div><div class="content-col"><strong>1根玉米 + 1个水煮蛋 + 黑咖</strong></div></div>
                 <div class="list-row routine-row"><div class="time-col">水</div><div class="content-col"><strong>2000ml 以上</strong> (加速代谢)</div></div>
             </div>
-
-            <div class="card"><div class="list-header"><span>周一 Mon (清肠排毒)</span></div>
-                <div class="list-row"><div class="time-col">午</div><div class="content-col"><span class="tag tag-lunch">Wagas</span><br><strong>香煎鸡胸肉能量碗</strong> (油醋汁少放，米饭吃一半)</div></div>
-                <div class="list-row"><div class="time-col">晚</div><div class="content-col"><span class="tag tag-dinner">全家</span><br><strong>关东煮(萝卜+魔芋丝+笋) + 1个蛋</strong></div></div>
-            </div>
-
-            <div class="card"><div class="list-header"><span>周二 Tue (优质牛肉)</span></div>
-                <div class="list-row"><div class="time-col">午</div><div class="content-col"><span class="tag tag-lunch">老娘舅/米村</span><br><strong>卤牛肉/肥牛(去油) + 杂粮饭</strong> (一定要去油！)</div></div>
-                <div class="list-row"><div class="time-col">晚</div><div class="content-col"><span class="tag tag-dinner">轻食</span><br><strong>鲜虾牛油果沙拉</strong></div></div>
-            </div>
-
-            <div class="card"><div class="list-header"><span>周三 Wed (鱼虾日)</span></div>
-                <div class="list-row"><div class="time-col">午</div><div class="content-col"><span class="tag tag-lunch">极究·波奇饭</span><br><strong>夏威夷经典波奇</strong> (海鲜为主，少酱)</div></div>
-                <div class="list-row"><div class="time-col">晚</div><div class="content-col"><span class="tag tag-dinner">热食替代</span><br><strong>白灼虾(15只) + 娃娃菜 + 半玉米</strong></div></div>
-            </div>
-
-            <div class="card"><div class="list-header"><span>周四 Thu (高纤维)</span></div>
-                <div class="list-row"><div class="time-col">午</div><div class="content-col"><span class="tag tag-lunch">麻辣烫</span><br><strong>清汤：大量蔬菜 + 豆腐 + 少量红薯粉</strong></div></div>
-                <div class="list-row"><div class="time-col">晚</div><div class="content-col"><span class="tag tag-dinner">极简</span><br><strong>无糖酸奶 + 坚果一小把</strong></div></div>
-            </div>
-
-            <div class="card"><div class="list-header"><span>周五 Fri (鸡腿日)</span></div>
-                <div class="list-row"><div class="time-col">午</div><div class="content-col"><span class="tag tag-lunch">快餐</span><br><strong>去皮大鸡腿 + 青菜 + 1/3米饭</strong></div></div>
-                <div class="list-row"><div class="time-col">晚</div><div class="content-col"><span class="tag tag-dinner">Subway</span><br><strong>金枪鱼沙拉</strong> (不要面包)</div></div>
-            </div>
-
-            <div class="card"><div class="list-header"><span>周六 Sat (适度欺骗)</span></div>
-                <div class="list-row"><div class="time-col">午</div><div class="content-col"><span class="tag tag-lunch">火锅</span><br><strong>只吃肉和菜，不沾麻酱，不喝汤</strong></div></div>
-                <div class="list-row"><div class="time-col">晚</div><div class="content-col"><span class="tag tag-dinner">平衡</span><br><strong>牛奶 + 水果</strong></div></div>
-            </div>
-
-            <div class="card"><div class="list-header"><span>周日 Sun (回归)</span></div>
-                <div class="list-row"><div class="time-col">午</div><div class="content-col"><strong>荞麦冷面 + 牛肉片</strong></div></div>
-                <div class="list-row"><div class="time-col">晚</div><div class="content-col"><strong>3个蛋白 + 黄瓜</strong></div></div>
-            </div>
+            <div class="card"><div class="list-header"><span>周五 Fri (鸡腿日)</span></div><div class="list-row"><div class="time-col">午</div><div class="content-col"><span class="tag tag-lunch">快餐</span><br><strong>去皮大鸡腿 + 青菜 + 1/3米饭</strong></div></div><div class="list-row"><div class="time-col">晚</div><div class="content-col"><span class="tag tag-dinner">Subway</span><br><strong>金枪鱼沙拉</strong> (不要面包)</div></div></div>
+            <div style="text-align:center; color:#ccc; font-size:12px; margin:10px;">(其他推荐见前日记录)</div>
         </div>
 
         <div id="c-workout" class="section">
              <div class="alert-banner" style="background:#FCE4EC; color:#C2185B; border-color:#F8BBD0;">🔥 <strong>Week 2 策略：</strong> 黄金期到了！增加重量，增加有氧时长，全力刷脂。</div>
-
-            <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>Day 1 (周一): 臀腿塑形</strong><div class="ex-detail">大重量激活</div></div><div>▼</div></div>
-                <div class="workout-body">
-                    <div class="phase-warmup phase-box">
-                        <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:#FF9500;"><path d="M25 20 L25 35 M25 35 L35 45" stroke="#333"/><path class="anim-stretch-leg" d="M25 35 L15 40" stroke="#FF9500"/><circle cx="25" cy="15" r="4" stroke="#333"/></svg></div>
-                        <div class="phase-text"><h4>【训练前激活】</h4><p><strong>动作：</strong>髋关节环绕 + 开合跳<br><strong>解析：</strong>激活臀中肌和髋关节，确保深蹲时臀部发力。</p></div>
-                    </div>
-                    <div class="phase-core">
-                        <div class="ex-item">
-                            <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary);"><g class="anim-squat-body"><circle cx="25" cy="10" r="4" stroke="#333"/><line x1="25" y1="14" x2="25" y2="30" stroke="#333"/><path d="M25 30 L15 45 M25 30 L35 45" stroke="#333"/></g></svg></div>
-                            <div class="ex-info"><div class="ex-name">1. 高脚杯深蹲</div><div class="ex-detail">4组 x 15次 (手持哑铃)</div></div>
-                        </div>
-                        <div class="ex-item">
-                            <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary);"><path d="M25 15 L25 30 L15 45 M25 30 L35 45" stroke="#333"/><line x1="15" y1="35" x2="35" y2="35" stroke="#FF3B30"/></svg></div>
-                            <div class="ex-info"><div class="ex-name">2. 哑铃罗马尼亚硬拉</div><div class="ex-detail">4组 x 12次 (感受大腿后侧)</div></div>
-                        </div>
-                        <div class="ex-item">
-                            <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary);"><path class="anim-run-leg-l" d="M25 30 L15 45" stroke="#333"/><path class="anim-run-leg-r" d="M25 30 L35 45" stroke="#333"/></svg></div>
-                            <div class="ex-info"><div class="ex-name">3. 箭步蹲行走</div><div class="ex-detail">4组 x 20步</div></div>
-                        </div>
-                        <div class="ex-item">
-                            <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary);"><path d="M10 40 L40 40" stroke="#333"/><path class="anim-push-bar" d="M15 40 L35 30" stroke="#333"/></svg></div>
-                            <div class="ex-info"><div class="ex-name">4. 臀桥 (加重量)</div><div class="ex-detail">4组 x 15次 (顶峰停顿1秒)</div></div>
-                        </div>
-                        <div class="ex-item"><div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 爬坡走 30分钟</div></div></div>
-                    </div>
-                    <div class="phase-cooldown phase-box">
-                         <div class="anim-icon"><svg viewBox="0 0 50 50"><path d="M20 40 L20 25 L30 25 L30 45" stroke="#333"/><path d="M30 45 L40 35" stroke="#34C759"/></svg></div>
-                        <div class="phase-text"><h4>【训练后拉伸】</h4><p><strong>动作：</strong>4字拉伸 + 鸽子式<br><strong>解析：</strong>深度拉伸臀大肌，避免臀部扁塌和第二天酸痛。</p></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>Day 2 (周二): 美背&肩部</strong><div class="ex-detail">改善体态</div></div><div>▼</div></div>
-                <div class="workout-body">
-                     <div class="phase-warmup phase-box">
-                        <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:#FF9500;"><path class="anim-arm-circle" d="M25 22 L40 22" stroke="#FF9500"/><path d="M25 22 L25 35" stroke="#333"/></svg></div>
-                        <div class="phase-text"><h4>【训练前激活】</h4><p><strong>动作：</strong>手臂画圈 + W字伸展<br><strong>解析：</strong>激活中下斜方肌，改善含胸驼背。</p></div>
-                    </div>
-                    <div class="phase-core">
-                        <div class="ex-item">
-                            <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:#AF52DE;"><g class="anim-pull-arm"><path d="M25 20 L10 10 M25 20 L40 10" stroke="#333"/><line x1="5" y1="10" x2="45" y2="10" stroke="#AF52DE"/></g></svg></div>
-                            <div class="ex-info"><div class="ex-name">1. 高位下拉</div><div class="ex-detail">4组 x 15次</div></div>
-                        </div>
-                        <div class="ex-item">
-                            <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:#AF52DE;"><line x1="10" y1="25" x2="40" y2="25" stroke="#ddd"/><path d="M15 25 L25 35 L35 25" stroke="#333"/></svg></div>
-                            <div class="ex-info"><div class="ex-name">2. 坐姿划船</div><div class="ex-detail">4组 x 15次</div></div>
-                        </div>
-                        <div class="ex-item">
-                            <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:#AF52DE;"><g class="anim-shoulder-press"><path d="M10 25 L10 15 M40 25 L40 15" stroke="#333"/></g></svg></div>
-                            <div class="ex-info"><div class="ex-name">3. 哑铃推举</div><div class="ex-detail">4组 x 12次</div></div>
-                        </div>
-                        <div class="ex-item">
-                             <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:#AF52DE;"><line x1="5" y1="35" x2="45" y2="35" stroke="#333" stroke-width="3"/></svg></div>
-                            <div class="ex-info"><div class="ex-name">4. 平板支撑</div><div class="ex-detail">4组 x 60秒</div></div>
-                        </div>
-                        <div class="ex-item"><div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 椭圆机 30分钟</div></div></div>
-                    </div>
-                    <div class="phase-cooldown phase-box">
-                        <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:#34C759;"><path d="M20 40 L20 20 L35 20" stroke="#34C759"/><path d="M20 30 L10 30" stroke="#333"/></svg></div>
-                        <div class="phase-text"><h4>【训练后拉伸】</h4><p><strong>动作：</strong>猫式伸展 + 手臂后拉<br><strong>解析：</strong>放松脊柱和背部肌肉。</p></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>Day 3 (周三): 有氧耐力</strong></div><div>▼</div></div>
-                <div class="workout-body">
-                    <div class="phase-core">
-                         <div class="ex-item"><div class="ex-info"><div class="ex-name">椭圆机 / 跑步机 / 单车</div><div class="ex-detail">保持心率140左右，持续 45 分钟</div></div></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>Day 4 (周四): 臀部针对</strong><div class="ex-detail">蜜桃臀</div></div><div>▼</div></div>
-                <div class="workout-body">
-                     <div class="phase-warmup phase-box">
-                        <div class="anim-icon"><svg viewBox="0 0 50 50"><path d="M15 40 L35 40" stroke="#333"/><path class="anim-crunch" d="M15 40 L25 30" stroke="#FF9500"/></svg></div>
-                        <div class="phase-text"><h4>【训练前激活】</h4><p><strong>动作：</strong>蚌式开合 + 臀桥<br><strong>解析：</strong>精准激活臀中肌，防止腿部代偿。</p></div>
-                    </div>
-                     <div class="phase-core">
-                        <div class="ex-item">
-                            <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary);"><path d="M20 40 L30 40" stroke="#333"/><path class="anim-stretch-leg" d="M30 40 L40 30" stroke="#333"/></svg></div>
-                            <div class="ex-info"><div class="ex-name">1. 跪姿后踢腿</div><div class="ex-detail">4组 x 20次/侧</div></div>
-                        </div>
-                        <div class="ex-item">
-                            <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary);"><path d="M10 40 L40 40" stroke="#333"/><path class="anim-fly-arm" d="M15 40 L30 25" stroke="#333"/></svg></div>
-                            <div class="ex-info"><div class="ex-name">2. 侧卧抬腿</div><div class="ex-detail">4组 x 20次/侧</div></div>
-                        </div>
-                        <div class="ex-item">
-                             <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary);"><g class="anim-squat-body"><path d="M25 30 L10 45 M25 30 L40 45" stroke="#333"/></g></svg></div>
-                            <div class="ex-info"><div class="ex-name">3. 相扑深蹲</div><div class="ex-detail">4组 x 15次 (宽距)</div></div>
-                        </div>
-                         <div class="ex-item"><div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 爬坡走 30分钟</div></div></div>
-                    </div>
-                     <div class="phase-cooldown phase-box">
-                         <div class="anim-icon"><svg viewBox="0 0 50 50"><path d="M20 40 L20 25 L30 25 L30 45" stroke="#333"/><path d="M30 45 L40 35" stroke="#34C759"/></svg></div>
-                        <div class="phase-text"><h4>【训练后拉伸】</h4><p><strong>动作：</strong>臀部坐姿拉伸<br><strong>解析：</strong>缓解臀部酸痛。</p></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>Day 5 (周五): 全身循环</strong></div><div>▼</div></div>
-                <div class="workout-body">
-                     <div class="phase-warmup phase-box">
-                        <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--warning);"><path d="M25 20 L10 10 M25 20 L40 10 M25 30 L15 45 M25 30 L35 45" stroke="#333"/></svg></div>
-                        <div class="phase-text"><h4>【训练前激活】</h4><p><strong>动作：</strong>原地高抬腿<br><strong>解析：</strong>瞬间提升心率。</p></div>
-                    </div>
-                    <div class="phase-core">
-                         <div class="ex-item">
-                             <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--warning);"><g class="anim-jump-jack"><path d="M25 20 L10 10 M25 20 L40 10 M25 30 L15 45 M25 30 L35 45" stroke="#333"/></g></svg></div>
-                             <div class="ex-info"><div class="ex-name">开合跳+深蹲+俯卧撑</div><div class="ex-detail">不间断循环 20分钟</div></div>
-                         </div>
-                         <div class="ex-item"><div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 跑步机 30分钟</div></div></div>
-                    </div>
-                     <div class="phase-cooldown phase-box">
-                         <div class="anim-icon"><svg viewBox="0 0 50 50"><path d="M10 40 L40 40" stroke="#ddd"/><path d="M15 40 L25 30 L35 40" stroke="#333"/><path class="anim-bend" d="M25 30 L25 15" stroke="#34C759"/></svg></div>
-                        <div class="phase-text"><h4>【训练后拉伸】</h4><p><strong>动作：</strong>全身静态拉伸<br><strong>解析：</strong>平复心率。</p></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" onclick="toggleCard(this)">
-                <div class="workout-header"><div><strong>Day 6/7 (周末): 户外/休息</strong></div><div>▼</div></div>
-                <div class="workout-body"><div class="ex-item"><div class="ex-info"><div class="ex-name">爬山 / 逛街(暴走) / 休息</div></div></div></div>
-            </div>
+            <div class="card" onclick="toggleCard(this)"><div class="workout-header"><div><strong>Day 5 (周五): 全身循环</strong></div><div>▼</div></div><div class="workout-body"><div class="phase-warmup phase-box"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--warning);"><path d="M25 20 L10 10 M25 20 L40 10 M25 30 L15 45 M25 30 L35 45" stroke="#333"/></svg></div><div class="phase-text"><h4>【训练前激活】</h4><p><strong>动作：</strong>动态拉伸 + 原地跑<br><strong>解析：</strong>快速提升心率，让身体进入燃脂状态。</p></div></div><div class="phase-core"><div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--warning);"><g class="anim-jump-jack"><path d="M25 20 L10 10 M25 20 L40 10 M25 30 L15 45 M25 30 L35 45" stroke="#333"/></g></svg></div><div class="ex-info"><div class="ex-name">波比跳 / 开合跳 / 深蹲跳</div><div class="ex-detail">循环做 20分钟</div></div></div><div class="ex-item"><div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 慢跑 30分钟</div></div></div></div><div class="phase-cooldown phase-box"><div class="anim-icon"><svg viewBox="0 0 50 50"><path d="M10 40 L40 40" stroke="#ddd"/><path d="M15 40 L25 30 L35 40" stroke="#333"/><path class="anim-bend" d="M25 30 L25 15" stroke="#34C759"/></svg></div><div class="phase-text"><h4>【训练后拉伸】</h4><p><strong>动作：</strong>全身静态拉伸<br><strong>解析：</strong>平复心率。</p></div></div></div></div>
         </div>
 
         <div id="c-feedback" class="section">
              <div class="feedback-list">
+                    <div class="feedback-item">
+                        <div class="feedback-dot" style="background:var(--success); border-color:#E8F5E9"></div>
+                        <div class="feedback-card">
+                            <div class="fb-date"><span>📅 1月16日 (Day 12)</span><span style="color:var(--text-sub)">未称重</span></div>
+                            <div class="fb-status">状态：有氧超神 | 晚餐过量</div>
+                            <div class="fb-content">
+                                <strong>训练：</strong> 90分钟有氧太强了！完全抵消了晚餐的热量。<br>
+                                <strong>饮食：</strong> 19点关东煮+22点烧烤，吃了两顿晚餐！这非常危险，幸好有氧够久。<br>
+                                <strong>睡眠：</strong> 11.5小时恢复力满分。
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="feedback-item">
                         <div class="feedback-dot" style="background:var(--primary); border-color:#fff"></div>
                         <div class="feedback-card">
                             <div class="fb-date"><span>📅 1月15日 (Day 11)</span><span style="color:var(--text-main)">112.5斤 (持平)</span></div>
                             <div class="fb-status">状态：饮食略咸 | 臀部酸痛</div>
                             <div class="fb-content">
-                                <strong>饮食：</strong> 午餐麻辣烫+夜宵生蚝烧烤，盐分略高，这是体重没变的主因。晚餐酸奶很棒。<br>
-                                <strong>训练：</strong> 40分钟爬坡有氧打卡。臀部酸痛说明在恢复，明天可恢复力量训练。
+                                <strong>饮食：</strong> 午餐麻辣烫+夜宵生蚝，盐分高。晚餐酸奶不错。<br>
+                                <strong>训练：</strong> 40分钟爬坡打卡。
                             </div>
                         </div>
                     </div>
@@ -825,9 +680,8 @@
                         <div class="feedback-card">
                             <div class="fb-date"><span>📅 1月14日 (Day 10)</span><span style="color:var(--success)">112.5斤 (新低↓2.1)</span></div>
                             <div class="fb-content">
-                                <strong>体重：</strong> 终于测了！112.5斤！相比之前的114.6，直接掉了2斤多，黄金期太强了。<br>
-                                <strong>饮食：</strong> 早餐优质碳水，午晚餐控油控碳，完美。<br>
-                                <strong>训练：</strong> 1小时有氧消耗极大，明天务必加力量训练防止掉肌肉。
+                                <strong>体重：</strong> 黄金期大爆发，直降2斤多！<br>
+                                <strong>饮食：</strong> 早餐优质，午晚餐控油控碳，完美。
                             </div>
                         </div>
                     </div>
@@ -837,8 +691,7 @@
                         <div class="feedback-card">
                             <div class="fb-date"><span>📅 1月13日 (Day 9)</span><span style="color:var(--success)">教科书级饮食</span></div>
                             <div class="fb-content">
-                                <strong>饮食：</strong> 早餐13g山核桃控制精准。午晚餐清淡，完美！<br>
-                                <strong>训练：</strong> 平板支撑6-7组太强了！
+                                <strong>饮食：</strong> 早餐13g山核桃控制精准。午晚餐清淡，完美！
                             </div>
                         </div>
                     </div>
@@ -860,7 +713,7 @@
                             <div class="fb-date"><span>📅 1月11日 (Day 7)</span><span style="color:var(--text-main)">有氧恢复 | 114.6斤</span></div>
                             <div class="fb-content">
                                 <strong>饮食：</strong> 米村拌饭+火锅，热量爆表。<br>
-                                <strong>训练：</strong> 椭圆机20min消食很棒，算是一点心理安慰。
+                                <strong>训练：</strong> 椭圆机20min消食很棒。
                             </div>
                         </div>
                     </div>
@@ -870,7 +723,7 @@
                         <div class="feedback-card">
                             <div class="fb-date"><span>📅 1月10日 (Day 6)</span><span style="color:var(--danger)">生理期</span></div>
                             <div class="fb-content">
-                                <strong>饮食：</strong> 彻底红灯🚨。250g红烧鸡爪(高脂肪)+300g米饭。这是增肌期的吃法，减脂期大忌。
+                                <strong>饮食：</strong> 彻底红灯🚨。250g红烧鸡爪(高脂肪)+300g米饭。
                             </div>
                         </div>
                     </div>
@@ -902,8 +755,7 @@
                         <div class="feedback-card" style="opacity:0.8;">
                             <div class="fb-date"><span>📅 1月7日 (Day 3)</span><span>休息日</span></div>
                             <div class="fb-content">
-                                <strong>饮食：</strong>早餐正常，午餐虾仁好评！<span style="color:var(--danger)">晚餐8个寿司</span>是隐形热量炸弹（米饭含糖），下次请换成刺身。<br>
-                                <strong>睡眠：</strong>01:00太晚了！
+                                <strong>饮食：</strong>早餐正常，午餐虾仁好评！<span style="color:var(--danger)">晚餐8个寿司</span>是隐形热量炸弹。
                             </div>
                         </div>
                     </div>
