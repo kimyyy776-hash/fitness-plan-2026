@@ -240,44 +240,44 @@
 
     <div id="home-view" class="view-container active">
         <div class="home-title">2026 第三周<br>突破瓶颈周</div>
-        <div class="home-subtitle">Day 15 · 1月19日 (周一)</div>
+        <div class="home-subtitle">Day 16 · 1月20日 (周二)</div>
 
         <div class="entry-card card-binbin" onclick="switchView('view-binbin')">
             <div class="entry-info">
                 <h2>BINBIN 减脂</h2>
-                <p>代谢爆发 · 增肌减脂</p>
+                <p>代谢爆发 · ⚠️带伤作战</p>
                 <div style="margin-top:10px;">
-                    <span class="badge" style="background:#007AFF">154.1斤 (新低!)</span>
+                    <span class="badge" style="background:#007AFF">154.1斤 (新低)</span>
                 </div>
             </div>
-            <div class="entry-icon">🔥</div>
+            <div class="entry-icon">🩹</div>
         </div>
 
         <div class="entry-card card-chaichai" onclick="switchView('view-chaichai')">
             <div class="entry-info">
                 <h2>CHAICHAI 塑形</h2>
-                <p>控糖周 · 力量进阶</p>
+                <p>有氧战神 · 力量进阶</p>
                 <div style="margin-top:10px;">
-                    <span class="badge" style="background:#FF2D55">112.3斤 (新低!)</span>
+                    <span class="badge" style="background:#FF2D55">112.3斤 (稳)</span>
                 </div>
             </div>
-            <div class="entry-icon">🧘‍♀️</div>
+            <div class="entry-icon">🏃‍♀️</div>
         </div>
         
-        <div style="text-align:center; color:#ccc; font-size:12px; margin-top:40px;">Updated: 1月19日</div>
+        <div style="text-align:center; color:#ccc; font-size:12px; margin-top:40px;">Updated: 1月20日</div>
     </div>
 
     <div id="view-binbin" class="view-container">
         <div class="header">
             <div class="nav-back" onclick="switchView('home-view')">❮ 返回</div>
             <h1>Week 3: 突破</h1>
-            <span class="badge">1月19日 · 周一</span>
+            <span class="badge">1月20日 · 周二</span>
         </div>
 
         <div class="dashboard">
             <div class="stat-item"><span class="stat-val" style="color:var(--text-sub)">160斤</span><span class="stat-lbl">初始</span></div>
             <div class="stat-item"><span class="stat-val" style="color:var(--success)">27.7%</span><span class="stat-lbl">体脂率(新低)</span></div>
-            <div class="stat-item"><span class="stat-val" style="color:var(--success)">155.4斤</span><span class="stat-lbl">最新</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:var(--success)">77.7kg</span><span class="stat-lbl">最新</span></div>
         </div>
 
         <div class="tabs">
@@ -327,7 +327,7 @@
         </div>
 
         <div id="b-workout" class="section">
-            <div class="alert-banner" style="background:#E3F2FD; color:#0D47A1; border-color:#90CAF9;">⚡️ <strong>Week 3 策略：</strong> 引入【对侧超级组】，做完推胸立刻做划船！</div>
+            <div class="alert-banner" style="background:#FFEBEE; color:#C62828; border-color:#FFCDD2;">🩹 <strong>警告：</strong> 肋骨受伤！暂停一切俯卧/胸部受压动作。</div>
 
             <div class="card open" onclick="toggleCard(this)">
                 <div class="workout-header"><div><strong>Day 1 (周一): 胸部+三头</strong><div class="ex-detail">超级组强度</div></div><div>▼</div></div>
@@ -462,6 +462,7 @@
                 <div class="workout-header"><div><strong>Day 5 (周五): 全身 HIIT</strong></div><div>▼</div></div>
                 <div class="workout-body">
                     <div class="phase-warmup phase-box">
+                        <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--warning);"><path d="M25 20 L10 10 M25 20 L40 10 M25 30 L15 45 M25 30 L35 45" stroke="#333"/></svg></div>
                         <div class="phase-text"><h4>【训练前激活】</h4><p><strong>动作：</strong>原地慢跑 2分钟<br><strong>解析：</strong>提升心肺功能，为高强度间歇运动做准备。</p></div>
                     </div>
                     <div class="phase-core">
@@ -472,6 +473,7 @@
                         <div class="ex-item"><div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 慢跑 20分钟</div></div></div>
                     </div>
                      <div class="phase-cooldown phase-box">
+                        <div class="anim-icon"><svg viewBox="0 0 50 50"><path d="M10 40 L40 40" stroke="#ddd"/><path d="M15 40 L25 30 L35 40" stroke="#333"/><path class="anim-bend" d="M25 30 L25 15" stroke="#34C759"/></svg></div>
                         <div class="phase-text"><h4>【训练后拉伸】</h4><p><strong>动作：</strong>全身静态拉伸<br><strong>解析：</strong>帮助心率平稳下降，缓解全身肌肉紧张。</p></div>
                     </div>
                 </div>
@@ -482,6 +484,17 @@
 
         <div id="b-feedback" class="section">
              <div class="feedback-list">
+                    <div class="feedback-item">
+                        <div class="feedback-dot" style="background:var(--danger); border-color:#FFEBEE"></div>
+                        <div class="feedback-card">
+                            <div class="fb-date"><span>📅 1月20日 (Day 16)</span><span style="color:var(--danger)">⚠️肋骨受伤</span></div>
+                            <div class="fb-status">状态：饮食放纵 | 带伤训练</div>
+                            <div class="fb-content">
+                                <strong>伤病：</strong> “海豹划船”导致右胸肋骨压伤，必须暂停压胸动作。<br>
+                                <strong>饮食：</strong> 奶茶+炸串+土豆片=热量炸弹。
+                            </div>
+                        </div>
+                    </div>
                     <div class="feedback-item">
                         <div class="feedback-dot" style="background:var(--success); border-color:#E8F5E9"></div>
                         <div class="feedback-card">
@@ -523,7 +536,7 @@
         <div class="header">
             <div class="nav-back" onclick="switchView('home-view')">❮ 返回</div>
             <h1>Week 3: 黄金燃脂</h1>
-            <span class="badge">1月19日 · 周一</span>
+            <span class="badge">1月20日 · 周二</span>
         </div>
 
         <div class="dashboard">
@@ -714,6 +727,16 @@
             <div class="feedback-list">
                     <div class="feedback-item">
                         <div class="feedback-dot" style="background:var(--success); border-color:#E8F5E9"></div>
+                        <div class="feedback-card">
+                            <div class="fb-date"><span>📅 1月20日 (Day 16)</span><span style="color:var(--success)">有氧战神</span></div>
+                            <div class="fb-content">
+                                <strong>状态：</strong> 100分钟有氧！心率完美。<br>
+                                <strong>饮食：</strong> 炸韭菜/麻婆豆腐油略大，但运动量足可抵消。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feedback-item">
+                        <div class="feedback-dot" style="background:#FF2D55"></div>
                         <div class="feedback-card">
                             <div class="fb-date"><span>📅 1月19日 (Day 15)</span><span style="color:var(--text-main)">112.3kg</span></div>
                             <div class="fb-content">
