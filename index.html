@@ -28,155 +28,193 @@
             padding: 0;
             color: var(--text-main);
             -webkit-font-smoothing: antialiased;
-            padding-bottom: 80px;
+            padding-bottom: 50px;
             overflow-x: hidden;
         }
 
-        /* 视图切换 */
+        /* --- 视图切换逻辑 --- */
         .view-container { display: none; opacity: 0; transition: opacity 0.3s ease; width: 100%; min-height: 100vh; }
         .view-container.active { display: block; opacity: 1; }
 
-        /* 首页 */
-        #home-view { padding: 20px; }
+        /* --- 主页 (入口) --- */
+        #home-view { padding: 20px; box-sizing: border-box; }
         .home-title { font-size: 28px; font-weight: 800; margin-top: 40px; margin-bottom: 10px; letter-spacing: -0.5px; }
         .home-subtitle { font-size: 14px; color: var(--text-sub); margin-bottom: 30px; font-weight: 500; }
         
         .entry-card {
             background: #fff; border-radius: 24px; padding: 25px; margin-bottom: 20px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.06); cursor: pointer;
-            transition: transform 0.1s; display: flex; align-items: center; justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s; display: flex; align-items: center; justify-content: space-between;
         }
         .entry-card:active { transform: scale(0.98); }
         .entry-info h2 { margin: 0 0 8px 0; font-size: 20px; }
         .entry-info p { margin: 0; font-size: 13px; color: var(--text-sub); }
         .entry-icon { font-size: 42px; }
-        .card-binbin { border-left: 6px solid var(--bin-color); }
-        .card-chaichai { border-left: 6px solid var(--chai-color); }
+        
+        .card-binbin { border-left: 6px solid #007AFF; }
+        .card-chaichai { border-left: 6px solid #FF2D55; }
 
-        /* 顶部导航 */
+        /* --- 顶部导航 --- */
         .header {
-            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 999;
-            padding: 15px 20px; border-bottom: 0.5px solid rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center;
+            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            position: sticky; top: 0; z-index: 999; padding: 15px 20px;
+            border-bottom: 0.5px solid rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center;
         }
-        .nav-back { font-size: 16px; font-weight: 500; cursor: pointer; }
-        .header h1 { margin: 0; font-size: 17px; font-weight: 700; position: absolute; left: 50%; transform: translateX(-50%); }
+        .nav-back { font-size: 16px; color: var(--primary); cursor: pointer; display: flex; align-items: center; }
+        .header h1 { margin: 0; font-size: 18px; font-weight: 700; position: absolute; left: 50%; transform: translateX(-50%); }
         .badge { background: #000; color: #fff; font-size: 11px; padding: 5px 10px; border-radius: 12px; font-weight: 600; }
 
-        /* 仪表盘 */
+        /* --- 仪表盘 --- */
         .dashboard {
             margin: 16px; padding: 20px; background: var(--card-bg); border-radius: 18px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04); display: flex; justify-content: space-between; text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04); display: flex; justify-content: space-between; text-align: center;
         }
         .stat-val { font-size: 22px; font-weight: 800; display: block; margin-bottom: 4px; }
         .stat-lbl { font-size: 11px; color: var(--text-sub); letter-spacing: 0.5px; }
 
-        /* Tabs */
+        /* --- Tabs --- */
         .tabs { margin: 16px; background: #E5E5EA; padding: 4px; border-radius: 12px; display: flex; }
         .tab-btn {
             flex: 1; padding: 8px 10px; border: none; background: transparent; font-weight: 600;
             font-size: 13px; border-radius: 9px; color: var(--text-sub); transition: all 0.2s; cursor: pointer;
         }
-        .tab-btn.active { background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+        .tab-btn.active { background: #fff; color: var(--text-main); box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+
         .section { display: none; animation: fadeIn 0.3s ease; }
         .section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* 内容列表 */
-        .card { background: var(--card-bg); margin: 0 16px 16px; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
-        .list-header { background: #F9F9F9; padding: 12px 16px; font-weight: 700; font-size: 15px; border-bottom: 1px solid var(--border); }
+        /* --- 核心卡片 --- */
+        .card {
+            background: var(--card-bg); margin: 0 16px 16px; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03); border: 0.5px solid rgba(0,0,0,0.03);
+            transition: all 0.2s ease;
+        }
+
+        /* --- 列表样式 --- */
+        .list-header { background: #F9F9F9; padding: 12px 16px; font-weight: 700; font-size: 15px; color: var(--primary); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
         .list-row { padding: 14px 16px; border-bottom: 0.5px solid var(--border); display: flex; align-items: flex-start; }
         .list-row:last-child { border-bottom: none; }
-        .time-col { font-size: 12px; font-weight: 700; color: var(--text-sub); width: 40px; padding-top: 2px; flex-shrink: 0;}
+        .time-col { font-size: 12px; font-weight: 700; color: var(--text-sub); width: 50px; flex-shrink: 0; padding-top: 2px; }
         .content-col { flex: 1; font-size: 14px; line-height: 1.5; }
-        .tag { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; font-weight: 600; }
+        .tag { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-bottom: 4px; font-weight: 600; text-transform: uppercase; }
+
+        /* 辅助配色 */
         .tag-lunch { background: rgba(52, 199, 89, 0.1); color: #34C759; }
         .tag-snack { background: rgba(255, 149, 0, 0.1); color: #FF9500; }
         .tag-dinner { background: rgba(255, 59, 48, 0.1); color: #FF3B30; }
-        .routine-row { background: #F2F8FF; }
+        .routine-row { background: #F2F8FF; } 
+        #view-chaichai .routine-row { background: #FFF0F5; } 
 
-        /* 训练模块 */
-        .workout-header { padding: 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; background: #fff; font-weight: 600; }
+        /* --- 训练折叠 & 三段式布局 --- */
+        .workout-header { padding: 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; position: relative; z-index: 2; background: #fff;}
         .workout-body { display: none; background: #fff; padding-bottom: 10px; }
         .card.open .workout-body { display: block; }
-        .card.open .workout-header { background: #F9F9F9; border-bottom: 0.5px solid #eee; }
+        .card.open .workout-header { border-bottom: 0.5px solid var(--border); background: #FAFAFA; }
         
-        .phase-box { display: flex; align-items: center; padding: 12px 16px; margin: 10px 16px; border-radius: 12px; gap: 12px; }
-        .phase-text h4 { margin: 0 0 2px 0; font-size: 12px; text-transform: uppercase; }
+        .ex-detail { font-size: 12px; color: var(--text-sub); margin-top: 2px; }
+
+        /* 三段式容器 */
+        .phase-box {
+            display: flex; align-items: center; padding: 12px 16px; margin: 10px 16px;
+            border-radius: 12px; gap: 12px;
+        }
+        .phase-text h4 { margin: 0 0 2px 0; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
         .phase-text p { margin: 0; font-size: 13px; color: #555; line-height: 1.3; }
-        .p-warm { background: #FFF9E6; border: 1px solid rgba(255, 180, 0, 0.15); }
-        .p-warm h4 { color: #FF9500; }
-        .p-cool { background: #E8F5E9; border: 1px solid rgba(76, 175, 80, 0.15); margin-bottom: 15px; }
-        .p-cool h4 { color: #34C759; }
-        
+
+        /* 热身区 (暖色) */
+        .phase-warmup { background: #FFF9E6; border: 1px solid rgba(255, 180, 0, 0.15); }
+        .phase-warmup .phase-text h4 { color: #FF9500; }
+        .phase-warmup .anim-icon { background: rgba(255,255,255,0.7); }
+
+        /* 拉伸区 (冷色) */
+        .phase-cooldown { background: #E8F5E9; border: 1px solid rgba(76, 175, 80, 0.15); margin-bottom: 15px; }
+        .phase-cooldown .phase-text h4 { color: #34C759; }
+        .phase-cooldown .anim-icon { background: rgba(255,255,255,0.7); }
+
+        /* 核心区 */
+        .phase-core { padding: 0; margin: 0; }
         .ex-item { display: flex; align-items: center; padding: 12px 16px; border-bottom: 0.5px solid #F5F5F5; }
         .ex-info { flex: 1; padding-left: 14px; }
         .ex-name { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
-        .ex-detail { font-size: 12px; color: var(--text-sub); }
 
-        /* 历史记录时间轴 */
+        /* --- SVG 动画容器 (火柴人) --- */
+        .anim-icon { width: 44px; height: 44px; background: #F2F2F7; border-radius: 10px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
+        .anim-icon svg { width: 30px; height: 30px; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.5; }
+        
+        /* 动画定义库 */
+        .anim-push-bar { animation: barMove 1.5s infinite ease-in-out; }
+        @keyframes barMove { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        
+        .anim-pull-arm { animation: pullMove 1.5s infinite ease-in-out; transform-origin: top center; }
+        @keyframes pullMove { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.7); } }
+        
+        .anim-run-leg-l { animation: runLeg 0.8s infinite linear alternate; transform-origin: top; }
+        .anim-run-leg-r { animation: runLeg 0.8s infinite linear alternate-reverse; transform-origin: top; }
+        @keyframes runLeg { from { transform: rotate(-25deg); } to { transform: rotate(25deg); } }
+        
+        .anim-squat-body { animation: squatMove 1.5s infinite ease-in-out; transform-origin: bottom center; }
+        @keyframes squatMove { 0%, 100% { transform: scaleY(1) translateY(0); } 50% { transform: scaleY(0.7) translateY(10px); } }
+        
+        .anim-shoulder-press { animation: shoulderPress 1.5s infinite ease-in-out; }
+        @keyframes shoulderPress { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        
+        .anim-arm-circle { animation: armCircle 2s infinite linear; transform-origin: 25px 18px; }
+        @keyframes armCircle { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .anim-bend { animation: bendBody 2s infinite ease-in-out; transform-origin: bottom center; }
+        @keyframes bendBody { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(15deg); } }
+
+        .anim-stretch-leg { animation: stretchLeg 2s infinite ease-in-out; }
+        @keyframes stretchLeg { 0%,100% { transform: translateX(0); } 50% { transform: translateX(3px); } }
+
+        .anim-fly-arm { animation: flyMove 1.5s infinite ease-in-out; transform-origin: 25px 25px; }
+        @keyframes flyMove { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-20deg); } }
+        .anim-fly-arm-r { animation: flyMoveR 1.5s infinite ease-in-out; transform-origin: 25px 25px; }
+        @keyframes flyMoveR { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(20deg); } }
+        
+        .anim-crunch { animation: crunchMove 1.5s infinite ease-in-out; transform-origin: bottom center; }
+        @keyframes crunchMove { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(-30deg); } }
+
+        .anim-jump-jack { animation: jackMove 0.8s infinite ease-in-out; transform-origin: center; }
+        @keyframes jackMove { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(0.9); } }
+        
+        .anim-clam { animation: clamMove 1.5s infinite ease-in-out; transform-origin: 15px 35px; }
+        @keyframes clamMove { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(-25deg); } }
+        
+        .anim-kick { animation: kickMove 1.5s infinite ease-in-out; transform-origin: 15px 25px; }
+        @keyframes kickMove { 0%,100% { transform: rotate(0deg); } 50% { transform: rotate(30deg); } }
+
+        /* 反馈列表 */
         .feedback-list { position: relative; padding-left: 20px; margin: 0 16px; margin-top: 20px; }
         .feedback-list::before { content: ''; position: absolute; left: 6px; top: 10px; bottom: 10px; width: 2px; background: #E5E5EA; }
         .feedback-item { position: relative; margin-bottom: 20px; padding-left: 20px; }
-        .feedback-dot { position: absolute; left: -21px; top: 18px; width: 10px; height: 10px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .feedback-dot { position: absolute; left: -21px; top: 18px; width: 10px; height: 10px; background: var(--primary); border-radius: 50%; border: 3px solid #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         .feedback-card { background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
         .fb-date { font-size: 12px; color: var(--text-sub); margin-bottom: 6px; display: flex; justify-content: space-between; }
         .fb-status { font-weight: 700; font-size: 14px; margin-bottom: 8px; color: var(--text-main); }
         .fb-content { font-size: 13px; color: #444; line-height: 1.5; background: #F9F9F9; padding: 10px; border-radius: 8px;}
 
-        /* 动画SVG */
-        .anim-icon { width: 44px; height: 44px; background: #F2F2F7; border-radius: 10px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
-        .anim-icon svg { width: 30px; height: 30px; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.5; }
+        /* --- 变量隔离区 --- */
+        #view-binbin { --primary: #007AFF; --danger: #FF3B30; --success: #34C759; --warning: #FF9500; --purple: #AF52DE; }
+        #view-chaichai { --primary: #FF2D55; --danger: #FF3B30; --success: #34C759; --warning: #FF9500; --purple: #AF52DE; }
         
-        @keyframes push { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
-        @keyframes pull { 0%,100%{transform:scaleY(1)} 50%{transform:scaleY(0.7)} }
-        @keyframes leg { 0%{transform:rotate(-20deg)} 100%{transform:rotate(20deg)} }
-        @keyframes squat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
-        @keyframes circle { from{transform:rotate(0)} to{transform:rotate(360deg)} }
-        @keyframes bend { 0%,100%{transform:rotate(0)} 50%{transform:rotate(15deg)} }
-        @keyframes stretch { 0%,100%{transform:translateX(0)} 50%{transform:translateX(3px)} }
-        @keyframes fly { 0%,100%{transform:rotate(0)} 50%{transform:rotate(-20deg)} }
-        @keyframes crunch { 0%,100%{transform:rotate(0deg)} 50%{transform:rotate(-30deg)} }
-        @keyframes jump { 0%,100%{transform:scaleY(1)} 50%{transform:scaleY(0.9)} }
-
-        .a-push { animation: push 1.5s infinite ease-in-out; }
-        .a-pull { animation: pull 1.5s infinite ease-in-out; transform-origin: top; }
-        .a-squat { animation: squat 1.5s infinite ease-in-out; transform-origin: bottom; }
-        .a-leg { animation: leg 0.8s infinite alternate; transform-origin: top; }
-        .a-jack { animation: jack 0.8s infinite ease-in-out; transform-origin: center; }
-        .a-crunch { animation: crunch 1.5s infinite ease-in-out; transform-origin: bottom; }
-        .a-fly { animation: fly 1.5s infinite ease-in-out; transform-origin: 25px 25px; }
-        .a-circle { animation: circle 2s infinite linear; transform-origin: 25px 18px; }
-        .a-bend { animation: bend 2s infinite ease-in-out; transform-origin: bottom; }
-        .a-stretch { animation: stretch 2s infinite ease-in-out; }
-
-        /* 颜色绑定 */
-        #view-binbin { --theme: var(--bin-color); }
-        #view-binbin .nav-back, #view-binbin .stat-val, #view-binbin .tab-btn.active, #view-binbin .list-header { color: var(--bin-color); }
-        #view-binbin .feedback-dot { background: var(--bin-color); }
-        #view-binbin svg { stroke: var(--bin-color); }
-
-        #view-chaichai { --theme: var(--chai-color); }
-        #view-chaichai .nav-back, #view-chaichai .stat-val, #view-chaichai .tab-btn.active, #view-chaichai .list-header { color: var(--chai-color); }
-        #view-chaichai .feedback-dot { background: var(--chai-color); }
-        #view-chaichai svg { stroke: var(--chai-color); }
-        #view-chaichai .routine-row { background: #FFF0F5; }
-
         .alert-banner { margin: 0 16px 16px; padding: 12px; background: #FFF8E1; border: 1px solid #FFECB3; border-radius: 12px; font-size: 13px; color: #856404; display: flex; align-items: center; }
-        .badge { background: #000; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+
     </style>
 </head>
 <body>
 
     <div id="home-view" class="view-container active">
         <div class="home-title">2026 第四周<br>挽救重启周</div>
-        <div class="home-subtitle">Day 22 · 1月26日 (周一)</div>
+        <div class="home-subtitle">Day 23 · 1月27日 (周二)</div>
 
         <div class="entry-card card-binbin" onclick="switchView('view-binbin')">
             <div class="entry-info">
                 <h2>BINBIN 减脂</h2>
-                <p>消肿成功 · 训练过猛</p>
+                <p>体脂新低 · 伤病隐患</p>
                 <div style="margin-top:10px;">
-                    <span class="badge" style="background:#E3F2FD; color:#007AFF">153.3斤 (新低!)</span>
+                    <span class="badge" style="background:#E3F2FD; color:#007AFF">27.2% (新低!)</span>
                 </div>
             </div>
             <div class="entry-icon">🔥</div>
@@ -185,27 +223,27 @@
         <div class="entry-card card-chaichai" onclick="switchView('view-chaichai')">
             <div class="entry-info">
                 <h2>CHAICHAI 塑形</h2>
-                <p>有氧战神 · 回归训练</p>
+                <p>低血糖警报 · 辣条背刺</p>
                 <div style="margin-top:10px;">
                     <span class="badge" style="background:#FFF0F5; color:#FF2D55">113斤 (稳)</span>
                 </div>
             </div>
-            <div class="entry-icon">🏃‍♀️</div>
+            <div class="entry-icon">🍫</div>
         </div>
         
-        <div style="text-align:center; color:#ccc; font-size:12px; margin-top:40px;">Updated: 1月26日</div>
+        <div style="text-align:center; color:#ccc; font-size:12px; margin-top:40px;">Updated: 1月27日</div>
     </div>
 
     <div id="view-binbin" class="view-container">
         <div class="header">
             <div class="nav-back" onclick="switchView('home-view')">❮ 返回</div>
             <h1>Week 4: 挽救</h1>
-            <span class="badge">1月26日 · 周一</span>
+            <span class="badge">1月27日 · 周二</span>
         </div>
 
         <div class="dashboard">
             <div class="stat-item"><span class="stat-val" style="color:var(--text-sub)">160斤</span><span class="stat-lbl">初始</span></div>
-            <div class="stat-item"><span class="stat-val" style="color:var(--success)">27.7%</span><span class="stat-lbl">体脂率</span></div>
+            <div class="stat-item"><span class="stat-val" style="color:var(--success)">27.2%</span><span class="stat-lbl">体脂率(新低!)</span></div>
             <div class="stat-item"><span class="stat-val" style="color:var(--success)">153.3斤</span><span class="stat-lbl">最新</span></div>
         </div>
 
@@ -331,6 +369,17 @@
                     <div class="feedback-item">
                         <div class="feedback-dot" style="background:var(--success); border-color:#E8F5E9"></div>
                         <div class="feedback-card">
+                            <div class="fb-date"><span>📅 1月27日 (Day 23)</span><span style="color:var(--success)">27.2% 体脂新低</span></div>
+                            <div class="fb-content">
+                                <strong>数据：</strong> 27.2%体脂率，对比上周↓0.5%。<br>
+                                <strong>训练：</strong> 高位下拉39kg，背部力量显著提升。<br>
+                                <strong>伤病：</strong> 肋骨微痛，切勿强行加重。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feedback-item">
+                        <div class="feedback-dot" style="background:var(--success); border-color:#E8F5E9"></div>
+                        <div class="feedback-card">
                             <div class="fb-date"><span>📅 1月26日 (Day 22)</span><span style="color:var(--success)">153.3斤 (暴跌↓2.7)</span></div>
                             <div class="fb-content">
                                 <strong>体重：</strong> 一天掉2.7斤！说明周末全是水肿，饮食调整非常有效。<br>
@@ -436,7 +485,7 @@
         <div class="header">
             <div class="nav-back" onclick="switchView('home-view')">❮ 返回</div>
             <h1>Week 4: 回归</h1>
-            <span class="badge">1月26日 · 周一</span>
+            <span class="badge">1月27日 · 周二</span>
         </div>
 
         <div class="dashboard">
@@ -536,11 +585,6 @@
                         <div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--purple);"><path d="M25 20 L10 10 M25 20 L40 10" stroke="#333"/><line x1="5" y1="10" x2="45" y2="10" stroke="#AF52DE"/></svg></div><div class="ex-info"><div class="ex-name">1. 高位下拉 4x15</div></div></div>
                         <div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--purple);"><line x1="10" y1="25" x2="40" y2="25" stroke="#ddd"/><path d="M15 25 L25 35 L35 25" stroke="#333"/></svg></div><div class="ex-info"><div class="ex-name">2. 坐姿划船 4x15</div></div></div>
                         <div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--purple);"><g class="a-shoulder"><path d="M10 25 L10 15 M40 25 L40 15" stroke="#333"/></g></svg></div><div class="ex-info"><div class="ex-name">3. 哑铃推举 4x15</div></div></div>
-                        <div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--purple);"><line x1="5" y1="35" x2="45" y2="35" stroke="#333" stroke-width="3"/></svg></div><div class="ex-info"><div class="ex-name">4. 平板支撑 4x45秒</div></div></div>
-                    </div>
-                    <div class="phase-cooldown phase-box">
-                        <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:#34C759;"><path d="M30 15 L30 45" stroke="#333"/><path class="a-bend" d="M30 25 L15 25 L10 15" stroke="#34C759"/><circle cx="30" cy="10" r="4" stroke="#333"/></svg></div>
-                        <div class="phase-text"><h4>【拉伸】</h4><p>猫式伸展 - 放松脊柱。</p></div>
                     </div>
                 </div>
             </div>
@@ -565,23 +609,14 @@
                         <div class="phase-text"><h4>【训练前激活】</h4><p><strong>动作：</strong>动态拉伸 + 原地跑</p></div>
                     </div>
                     <div class="phase-core">
-                        <div class="ex-item">
-                             <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--warning);"><g class="a-squat"><path d="M25 30 L15 45 M25 30 L35 45" stroke="#333"/><line x1="10" y1="16" x2="40" y2="16" stroke="#FF3B30"/></g></svg></div>
-                            <div class="ex-info"><div class="ex-name">深蹲跳</div><div class="ex-detail">15次</div></div>
-                        </div>
-                         <div class="ex-item">
-                             <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--warning);"><g class="a-jack"><path d="M25 20 L10 10 M25 20 L40 10 M25 30 L15 45 M25 30 L35 45" stroke="#333"/></g></svg></div>
-                            <div class="ex-info"><div class="ex-name">开合跳</div><div class="ex-detail">40次</div></div>
-                        </div>
-                         <div class="ex-item">
-                             <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--warning);"><path class="a-leg" d="M25 30 L15 45" stroke="#333"/><path class="a-leg" d="M25 30 L35 45" stroke="#333"/></svg></div>
-                            <div class="ex-info"><div class="ex-name">高抬腿</div><div class="ex-detail">30秒 (循环20分钟)</div></div>
-                        </div>
+                        <div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--warning);"><g class="a-squat"><path d="M25 30 L15 45 M25 30 L35 45" stroke="#333"/><line x1="10" y1="16" x2="40" y2="16" stroke="#FF3B30"/></g></svg></div><div class="ex-info"><div class="ex-name">深蹲跳 15次</div></div></div>
+                        <div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--warning);"><g class="a-jack"><path d="M25 20 L10 10 M25 20 L40 10 M25 30 L15 45 M25 30 L35 45" stroke="#333"/></g></svg></div><div class="ex-info"><div class="ex-name">开合跳 40次</div></div></div>
+                        <div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--warning);"><path class="a-leg" d="M25 30 L15 45" stroke="#333"/><path class="a-leg" d="M25 30 L35 45" stroke="#333"/></svg></div><div class="ex-info"><div class="ex-name">高抬腿 30秒</div></div></div>
                         <div class="ex-item"><div class="ex-info"><div class="ex-name" style="color:var(--success)">🔥 爬坡 30分钟</div></div></div>
                     </div>
                      <div class="phase-cooldown phase-box">
                         <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:#34C759;"><path d="M25 30 L15 45" stroke="#333"/><path class="a-stretch" d="M25 30 L35 45" stroke="#333"/></svg></div>
-                        <div class="phase-text"><h4>【训练后拉伸】</h4><p><strong>动作：</strong>小腿拉伸 + 大腿拉伸</p></div>
+                        <div class="phase-text"><h4>【训练后拉伸】</h4><p>小腿拉伸 + 大腿拉伸</p></div>
                     </div>
                 </div>
             </div>
@@ -591,26 +626,17 @@
                 <div class="workout-body">
                     <div class="phase-warmup phase-box">
                         <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--warning);"><path d="M25 10 L25 30" stroke="#333"/><path class="a-crunch" d="M25 30 L15 45 M25 30 L35 45" stroke="#333"/></svg></div>
-                        <div class="phase-text"><h4>【训练前激活】</h4><p><strong>动作：</strong>死虫式 / 平板支撑激活</p></div>
+                        <div class="phase-text"><h4>【训练前激活】</h4><p>死虫式 / 平板支撑激活</p></div>
                     </div>
                     <div class="phase-core">
-                        <div class="ex-item">
-                             <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary);"><path d="M25 10 L25 30" stroke="#333"/><path class="a-crunch" d="M25 30 L15 45 M25 30 L35 45" stroke="#333"/></svg></div>
-                            <div class="ex-info"><div class="ex-name">卷腹 4x20</div></div>
-                        </div>
-                        <div class="ex-item">
-                             <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary);"><path d="M25 10 L25 30" stroke="#333"/><path class="a-crunch" d="M25 30 L15 45 M25 30 L35 45" stroke="#333"/></svg></div>
-                            <div class="ex-info"><div class="ex-name">俄罗斯转体 4x20</div></div>
-                        </div>
-                        <div class="ex-item">
-                             <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--warning);"><path class="a-leg" d="M25 30 L15 45" stroke="#333"/><path class="a-leg" d="M25 30 L35 45" stroke="#333"/></svg></div>
-                            <div class="ex-info"><div class="ex-name">空中蹬车 4x30秒</div></div>
-                        </div>
+                        <div class="ex-item"><div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:var(--primary);"><path d="M25 10 L25 30" stroke="#333"/><path class="a-crunch" d="M25 30 L15 45 M25 30 L35 45" stroke="#333"/></svg></div><div class="ex-info"><div class="ex-name">卷腹 4x20</div></div></div>
+                        <div class="ex-item"><div class="ex-info"><div class="ex-name">俄罗斯转体 4x20</div></div></div>
+                        <div class="ex-item"><div class="ex-info"><div class="ex-name">空中蹬车 4x30秒</div></div></div>
                         <div class="ex-item"><div class="ex-info"><div class="ex-name">慢跑 30分钟</div></div></div>
                     </div>
                      <div class="phase-cooldown phase-box">
                         <div class="anim-icon"><svg viewBox="0 0 50 50" style="stroke:#34C759;"><path d="M30 15 L30 45" stroke="#333"/><path class="a-bend" d="M30 25 L15 25 L10 15" stroke="#34C759"/><circle cx="30" cy="10" r="4" stroke="#333"/></svg></div>
-                        <div class="phase-text"><h4>【训练后拉伸】</h4><p><strong>动作：</strong>腹部拉伸 (眼镜蛇式)</p></div>
+                        <div class="phase-text"><h4>【训练后拉伸】</h4><p>腹部拉伸 (眼镜蛇式)</p></div>
                     </div>
                 </div>
             </div>
@@ -620,6 +646,17 @@
 
         <div id="c-record" class="section">
             <div class="feedback-list">
+                    <div class="feedback-item">
+                        <div class="feedback-dot" style="background:var(--warning); border-color:#FFEBEE"></div>
+                        <div class="feedback-card">
+                            <div class="fb-date"><span>📅 1月27日 (Day 23)</span><span style="color:var(--warning)">低血糖警报</span></div>
+                            <div class="fb-content">
+                                <strong>问题：</strong> 23:30低血糖（辣条+饼干急救）。<br>
+                                <strong>原因：</strong> 午餐吃了清蒸鲈鱼+炒青菜，热量缺口太大。<br>
+                                <strong>建议：</strong> 训练日晚餐必须加半拳头米饭！
+                            </div>
+                        </div>
+                    </div>
                     <div class="feedback-item">
                         <div class="feedback-dot" style="background:var(--success); border-color:#E8F5E9"></div>
                         <div class="feedback-card">
